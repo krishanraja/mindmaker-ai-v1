@@ -21,7 +21,7 @@ const CTASection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary-glow text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-primary via-accent to-accent text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_70%)]" />
@@ -44,7 +44,7 @@ const CTASection = () => {
               <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/20 transition-colors duration-300">
                 <stat.icon className="w-10 h-10 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-black mb-4 text-accent-glow">
+              <div className="text-3xl md:text-4xl font-black mb-4 text-accent-foreground">
                 {stat.number}
               </div>
               <p className="text-lg opacity-90">
@@ -64,7 +64,7 @@ const CTASection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button variant="cta" size="xl" className="group bg-accent hover:bg-accent-glow">
+              <Button variant="cta" size="xl" className="group bg-accent hover:bg-accent/90">
                 Start Your AI Transformation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
