@@ -45,11 +45,11 @@ const StatsSection = () => {
                 <stat.icon className="h-8 w-8" />
               </div>
               
-              <div className="text-5xl font-bold text-foreground group-hover:scale-110 transition-transform duration-300 mb-6 tracking-tight">
+              <div className="text-3xl md:text-4xl font-bold text-foreground group-hover:scale-110 transition-transform duration-300 mb-4 tracking-tight">
                 {stat.number}
               </div>
               
-              <div className="text-xl font-medium text-foreground mb-3 tracking-wide">
+              <div className="text-lg font-medium text-foreground mb-3 tracking-wide">
                 {stat.label}
               </div>
               
