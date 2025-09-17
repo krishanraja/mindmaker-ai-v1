@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import mindmakerLogo from "@/assets/mindmaker-logo.png";
+import mindmakerIcon from "@/assets/mindmaker-icon-black.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +26,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src={mindmakerLogo} 
+              src={mindmakerIcon} 
               alt="MindMaker" 
               className="h-8 w-auto"
             />

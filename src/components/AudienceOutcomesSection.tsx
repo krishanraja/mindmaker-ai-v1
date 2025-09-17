@@ -1,5 +1,5 @@
-import { Crown, Rocket, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import mindmakerIconLight from "@/assets/mindmaker-icon-light.png";
 
 const AudienceOutcomesSection = () => {
   const outcomes = [
@@ -13,7 +13,7 @@ const AudienceOutcomesSection = () => {
         "Risk mitigation strategies that actually work",
         "Team alignment on AI priorities"
       ],
-      icon: Crown,
+      icon: mindmakerIconLight,
       cta: "Executive Assessment"
     },
     {
@@ -26,7 +26,7 @@ const AudienceOutcomesSection = () => {
         "Resource allocation that drives ROI",
         "Investor-ready AI narrative"
       ],
-      icon: Rocket,
+      icon: mindmakerIconLight,
       cta: "Founder Sprint"
     },
     {
@@ -39,7 +39,7 @@ const AudienceOutcomesSection = () => {
         "Career positioning in AI-first economy", 
         "Confidence to lead AI initiatives"
       ],
-      icon: TrendingUp,
+      icon: mindmakerIconLight,
       cta: "Team Program"
     },
   ];
@@ -64,7 +64,7 @@ const AudienceOutcomesSection = () => {
             <div key={index} className="card p-8 fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="text-center mb-8">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-xl mb-4">
-                  <outcome.icon className="h-8 w-8" />
+                  <img src={outcome.icon} alt="MindMaker Icon" className="h-8 w-8" />
                 </div>
                 <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-2">
                   {outcome.audience}
