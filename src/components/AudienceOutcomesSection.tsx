@@ -17,7 +17,7 @@ const AudienceOutcomesSection = () => {
       cta: "Executive Assessment"
     },
     {
-      audience: "Founders",
+      audience: "High Growth SMB",
       outcome: "Reclaim Purpose", 
       description: "Stop chasing AI shiny objects. Focus on what matters: sustainable competitive advantage.",
       benefits: [
@@ -27,7 +27,7 @@ const AudienceOutcomesSection = () => {
         "Investor-ready AI narrative"
       ],
       icon: mindmakerIconLight,
-      cta: "Founder Sprint"
+      cta: "High Growth Sprint"
     },
     {
       audience: "Teams", 
@@ -95,7 +95,7 @@ const AudienceOutcomesSection = () => {
                 <a 
                   href={
                     outcome.cta === 'Executive Assessment' ? 'https://leaders.themindmaker.ai' :
-                    outcome.cta === 'Founder Sprint' ? 'https://founders.themindmaker.ai' :
+                    outcome.cta === 'High Growth Sprint' ? 'https://smb.themindmaker.ai' :
                     outcome.cta === 'Team Program' ? 'https://teams.themindmaker.ai' :
                     '#'
                   }
