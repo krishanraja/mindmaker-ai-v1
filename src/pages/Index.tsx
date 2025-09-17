@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
 import DifferenceSection from "@/components/DifferenceSection";
@@ -11,40 +12,41 @@ import CTASection from "@/components/CTASection";
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <Navigation />
       {/* SEO-optimized structure */}
       <header>
         <Hero />
       </header>
       
-      <section aria-label="Proven Results">
+      <section aria-label="Proven Results" id="stats">
         <StatsSection />
       </section>
       
-      <section aria-label="The MindMaker Difference">
+      <section aria-label="The MindMaker Difference" id="difference">
         <DifferenceSection />
       </section>
       
-      <section aria-label="The Problem">
+      <section aria-label="The Problem" id="problem">
         <ProblemSection />
       </section>
       
-      <section aria-label="Transformation Outcomes">
+      <section aria-label="Transformation Outcomes" id="outcomes">
         <AudienceOutcomesSection />
       </section>
       
-      <section aria-label="Our Methodology">
+      <section aria-label="Our Methodology" id="methodology">
         <MethodologySection />
       </section>
       
-      <section aria-label="AI MindMaker Program">
+      <section aria-label="AI MindMaker Program" id="pathways">
         <PathwaysSection />
       </section>
       
-      <section aria-label="AI-Enabled Coaching">
+      <section aria-label="AI-Enabled Coaching" id="coach">
         <CoachSection />  
       </section>
       
-      <footer>
+      <footer id="cta">
         <CTASection />
       </footer>
     </main>

@@ -1,24 +1,24 @@
-import { Award, Users, Zap } from "lucide-react";
+import { GraduationCap, BookOpen, Users } from "lucide-react";
 
 const StatsSection = () => {
   const stats = [
     {
-      number: "90+",
-      label: "AI product strategies delivered",
-      description: "to media & enterprise organizations",
-      icon: Award,
+      number: "Qualified",
+      label: "Teacher & Educator",
+      description: "with proven enterprise data literacy programs",
+      icon: GraduationCap,
     },
     {
-      number: "50+", 
-      label: "Executive seminars delivered",
-      description: "on automation & AI futures",
+      number: "Advanced", 
+      label: "Academic Credentials",
+      description: "Linguistics, Computing & Psychology degrees",
+      icon: BookOpen,
+    },
+    {
+      number: "200+",
+      label: "Minds Transformed",
+      description: "through AI literacy acceleration programs",
       icon: Users,
-    },
-    {
-      number: "16",
-      label: "Years of proven expertise",
-      description: "in tech & AI transformation",
-      icon: Zap,
     },
   ];
 
@@ -27,14 +27,13 @@ const StatsSection = () => {
       <div className="container-width">
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
-            The Definitive AI Literacy &{" "}
+            The World's First{" "}
             <span className="text-primary">
-              Strategic Advisory
-            </span>{" "}
-            Firm
+              AI Literacy Accelerator
+            </span>
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
-            Proven track record of transforming enterprises from AI confusion to competitive advantage
+            Combining qualified teaching credentials with advanced cognitive science to transform how leaders think about AI
           </p>
         </div>
         
