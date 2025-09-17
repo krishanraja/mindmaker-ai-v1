@@ -1,4 +1,5 @@
-import { GraduationCap, BookOpen, Users } from "lucide-react";
+import { GraduationCap, BookOpen, Users, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const StatsSection = () => {
   const stats = [
@@ -57,6 +58,19 @@ const StatsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        {/* Founder CTA Button */}
+        <div className="flex justify-center mt-12 md:mt-16">
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300"
+            onClick={() => window.open('https://mindmakerlabs.com', '_blank')}
+          >
+            <ExternalLink className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+            Check out our Founder
+          </Button>
         </div>
       </div>
     </section>

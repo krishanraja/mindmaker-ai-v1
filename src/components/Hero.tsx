@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, TrendingUp, Database, Briefcase, ExternalLink } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Database, Briefcase } from "lucide-react";
 import mindmakerLogo from "@/assets/mindmaker-logo.png";
 
 const Hero = () => {
@@ -99,20 +99,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Founder CTA Button - Now properly positioned within main content */}
-          <div className="flex justify-center mt-12 md:mt-16 max-w-4xl mx-auto">
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="glass-card-dark border-white/20 text-white hover:bg-white/10 hover:backdrop-blur-md font-medium px-6 md:px-8 py-3 md:py-4 text-base md:text-lg group transition-all duration-300"
-              onClick={() => window.open('https://www.krishraja.com', '_blank', 'noopener,noreferrer')}
-              aria-label="Visit Krishna Raja's personal website"
-              data-testid="founder-cta-button"
-            >
-              Check out our Founder
-              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </Button>
-          </div>
 
         </div>
       </div>
