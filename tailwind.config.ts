@@ -14,19 +14,30 @@ export default {
     },
     extend: {
       fontFamily: {
-        'inter': ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-          light: "hsl(var(--primary-light))",
-          glow: "hsl(var(--primary-glow))",
+          100: "hsl(var(--primary-100))",
+          200: "hsl(var(--primary-200))",
+          400: "hsl(var(--primary-400))",
+          600: "hsl(var(--primary-600))",
+          foreground: "white",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          400: "hsl(var(--accent-400))",
+          foreground: "white",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -34,25 +45,11 @@ export default {
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-          glow: "hsl(var(--accent-glow))",
+          foreground: "white",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-          elevated: "hsl(var(--card-elevated))",
         },
       },
       borderRadius: {

@@ -25,29 +25,29 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-muted/30">
+    <section className="section-padding bg-background">
       <div className="container-width">
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="display-lg mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
             The Critical{" "}
-            <span className="text-red-600">
+            <span className="text-destructive">
               Enterprise Challenge
             </span>
           </h2>
-          <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
             While competitors race ahead with AI, most enterprises remain stuck in pilot purgatory, 
             burning resources without measurable results.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {problems.map((problem, index) => (
-            <div key={index} className="card-modern text-center p-6 fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl mb-6">
-                <problem.icon className="h-8 w-8 text-white" />
+            <div key={index} className="card text-center p-6 fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-destructive text-white rounded-xl mb-6">
+                <problem.icon className="h-8 w-8" />
               </div>
               
-              <div className="text-3xl font-bold text-red-600 mb-4">
+              <div className="text-3xl font-bold text-destructive mb-4">
                 {problem.stat}
               </div>
               
@@ -59,8 +59,8 @@ const ProblemSection = () => {
         </div>
 
         {/* Quote Section */}
-        <div className="card-modern p-8 max-w-4xl mx-auto text-center fade-in-up">
-          <blockquote className="body-lg italic text-muted-foreground mb-6">
+        <div className="card p-8 max-w-4xl mx-auto text-center fade-in-up">
+          <blockquote className="text-base md:text-lg leading-relaxed italic text-muted-foreground mb-6">
             "The gap between AI hype and practical implementation is costing enterprises millions. 
             Without proper literacy and strategic direction, even the best AI tools become expensive experiments."
           </blockquote>

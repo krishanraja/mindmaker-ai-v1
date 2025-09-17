@@ -66,16 +66,16 @@ const MethodologySection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-subtle">
+    <section className="section-padding bg-muted">
       <div className="container-width">
         <div className="text-center mb-20 fade-in-up">
-          <h2 className="display-lg mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
             Our Proven{" "}
-            <span className="text-purple-600">
+            <span className="text-primary">
               4-Phase Methodology
             </span>
           </h2>
-          <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
             The systematic approach that has delivered 3-5x revenue growth for 100+ enterprises. 
             From AI literacy to strategic excellence in 90 days.
           </p>
@@ -90,21 +90,21 @@ const MethodologySection = () => {
               {/* Content */}
               <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="text-4xl font-bold text-purple-600">
+                  <div className="text-4xl font-bold text-primary">
                     {phase.number}
                   </div>
                   <div>
-                    <h3 className="display-md font-bold">{phase.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-semibold tracking-tight">{phase.title}</h3>
                     <p className="text-lg text-muted-foreground">{phase.subtitle}</p>
                   </div>
                 </div>
                 
                 <div className="mb-6">
                   <h4 className="text-xl font-semibold text-foreground mb-3">Goal:</h4>
-                  <p className="body-lg text-muted-foreground">{phase.goal}</p>
+                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground">{phase.goal}</p>
                 </div>
                 
-                <p className="body-md text-muted-foreground mb-8">
+                <p className="text-base leading-relaxed text-muted-foreground mb-8">
                   {phase.description}
                 </p>
                 
@@ -113,14 +113,14 @@ const MethodologySection = () => {
                   <ul className="space-y-3">
                     {phase.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full" />
+                        <div className="w-2 h-2 bg-primary rounded-full" />
                         <span className="text-muted-foreground">{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 
-                <Button className="btn-modern group">
+                <Button className="bg-primary text-white hover:bg-primary-600 focus:ring-2 focus:ring-ring group">
                   {phase.cta}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -128,12 +128,12 @@ const MethodologySection = () => {
               
               {/* Visual */}
               <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <div className="card-modern p-12 text-center">
-                  <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl mb-8">
-                    <phase.icon className="h-12 w-12 text-white" />
+                <div className="card p-12 text-center">
+                  <div className="inline-flex items-center justify-center w-24 h-24 bg-primary text-white rounded-2xl mb-8">
+                    <phase.icon className="h-12 w-12" />
                   </div>
                   
-                  <div className="text-6xl font-bold text-purple-600 mb-4">
+                  <div className="text-6xl font-bold text-primary mb-4">
                     {phase.number}
                   </div>
                   

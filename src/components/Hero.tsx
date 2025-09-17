@@ -14,7 +14,7 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="display-xl mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight mb-6 leading-tight">
             Transform Your Business with
             <span className="block text-white">
               Strategic AI Implementation
@@ -22,7 +22,7 @@ const Hero = () => {
           </h1>
           
           {/* Subheadline */}
-          <p className="body-lg mb-12 max-w-4xl mx-auto opacity-90 leading-relaxed">
+          <p className="text-base md:text-lg leading-relaxed mb-12 max-w-4xl mx-auto opacity-90">
             Break free from AI pilot purgatory. Our proven 4-phase methodology has delivered 
             <strong className="text-white"> 3-5x revenue growth</strong> for 100+ enterprises. 
             Move from AI hype to measurable competitive advantage.
@@ -32,7 +32,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             <Button 
               size="lg" 
-              className="btn-modern bg-white text-purple-600 hover:bg-white/90 font-semibold px-8 py-4 text-lg group"
+              className="bg-primary text-white hover:bg-primary-600 focus:ring-2 focus:ring-ring font-semibold px-8 py-4 text-lg group"
             >
               Get Your AI Readiness Assessment
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -41,15 +41,15 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="btn-modern border-white/30 text-white hover:bg-white/10 font-medium px-8 py-4 text-lg"
+              className="border border-border text-foreground hover:bg-muted font-medium px-8 py-4 text-lg"
             >
               Watch Success Stories
             </Button>
           </div>
 
           {/* Proof Points */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="card-modern text-center p-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="card text-center p-6">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-4">
                 <Target className="h-6 w-6 text-white" />
               </div>
@@ -57,7 +57,7 @@ const Hero = () => {
               <div className="text-white/80 text-sm">Enterprises Transformed</div>
             </div>
             
-            <div className="card-modern text-center p-6">
+            <div className="card text-center p-6">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-4">
                 <TrendingUp className="h-6 w-6 text-white" />
               </div>
@@ -65,7 +65,7 @@ const Hero = () => {
               <div className="text-white/80 text-sm">Revenue Growth</div>
             </div>
             
-            <div className="card-modern text-center p-6">
+            <div className="card text-center p-6">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-4">
                 <Sparkles className="h-6 w-6 text-white" />
               </div>

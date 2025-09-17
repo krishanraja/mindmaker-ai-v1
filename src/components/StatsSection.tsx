@@ -23,29 +23,29 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-gradient-subtle">
+    <section className="section-padding bg-muted">
       <div className="container-width">
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="display-lg mb-4">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-4">
             The Definitive AI Literacy &{" "}
-            <span className="text-purple-600">
+            <span className="text-primary">
               Strategic Advisory
             </span>{" "}
             Firm
           </h2>
-          <p className="body-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
             Proven track record of transforming enterprises from AI confusion to competitive advantage
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
-            <div key={index} className="card-modern card-metric group fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="h-8 w-8 text-white" />
+            <div key={index} className="card text-center p-6 group fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <stat.icon className="h-8 w-8" />
               </div>
               
-              <div className="number group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl font-semibold text-foreground group-hover:scale-110 transition-transform duration-300 mb-4">
                 {stat.number}
               </div>
               
@@ -53,7 +53,7 @@ const StatsSection = () => {
                 {stat.label}
               </div>
               
-              <div className="label">
+              <div className="text-muted-foreground">
                 {stat.description}
               </div>
             </div>
