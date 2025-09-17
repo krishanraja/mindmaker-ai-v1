@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
+import TrustSection from "@/components/TrustSection";
 import DifferenceSection from "@/components/DifferenceSection";
 import ProblemSection from "@/components/ProblemSection";
 import AudienceOutcomesSection from "@/components/AudienceOutcomesSection";
@@ -20,6 +21,10 @@ const Index = () => {
       
       <section aria-label="Proven Results" id="stats">
         <StatsSection />
+      </section>
+      
+      <section aria-label="Trusted by Industry Leaders" id="trust">
+        <TrustSection />
       </section>
       
       <section aria-label="The MindMaker Difference" id="difference">
