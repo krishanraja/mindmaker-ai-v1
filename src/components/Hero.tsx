@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="hero-clouds min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Content */}
       <div className="container-width relative z-10 text-center text-white">
-        <div className="max-w-6xl mx-auto fade-in-up pt-12 md:pt-16 lg:pt-20">
+        <div className="max-w-6xl mx-auto fade-in-up pt-12 md:pt-16 lg:pt-20 pb-16 md:pb-20">
           {/* Logo */}
           <div className="mb-8">
             <img 
@@ -100,7 +100,7 @@ const Hero = () => {
           </div>
 
           {/* Founder CTA Button - Now properly positioned within main content */}
-          <div className="flex justify-center mt-8 max-w-4xl mx-auto">
+          <div className="flex justify-center mt-12 md:mt-16 max-w-4xl mx-auto">
             <Button 
               variant="outline" 
               size="lg"
