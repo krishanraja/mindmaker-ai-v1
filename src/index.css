@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@layer base, components, utilities;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* 2025 Editorial Design System - Single Source of Truth */
+@layer base {
 :root {
   /* Base */
   --background: 0 0% 100%;
@@ -43,6 +46,10 @@
   /* Secondary system */
   --secondary: 210 40% 96%;
   --secondary-foreground: var(--foreground);
+
+  /* Design System Custom Properties - Bulletproof Styles */
+  --hero-text-shimmer: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0.9) 100%);
+  --brand-gradient: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
 }
 
 .dark {
@@ -60,6 +67,7 @@
   --secondary: 222 32% 12%;
   --secondary-foreground: var(--foreground);
 }
+}
 
 * {
   border-color: hsl(var(--border));
@@ -72,16 +80,18 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Utilities used by components */
-.section-padding { 
-  padding: clamp(4rem, 8vw, 8rem) 0; 
-}
+/* Component Layer - Design System Classes */
+@layer components {
+  /* Utilities used by components */
+  .section-padding { 
+    padding: clamp(4rem, 8vw, 8rem) 0; 
+  }
 
-.container-width { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 1.5rem; 
-}
+  .container-width { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 1.5rem; 
+  }
 
 /* Mobile viewport utilities */
 .pt-safe-top {
@@ -114,12 +124,6 @@ body {
   box-shadow: 0 8px 32px hsl(var(--primary) / 0.1);
 }
 
-/* Brand gradient background utility */
-.bg-brand-gradient {
-  background-image: linear-gradient(135deg,
-    hsl(var(--primary)) 0%,
-    hsl(var(--accent)) 100%);
-}
 
 /* Animation keyframes */
 @keyframes fade-in-up {
@@ -147,20 +151,20 @@ body {
   opacity: 0;
 }
 
-.hero-text-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 1) 25%,
-    rgba(255, 255, 255, 1) 50%,
-    rgba(255, 255, 255, 1) 75%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: hero-text-shimmer 3s ease-in-out infinite;
+  /* Bulletproof Text Effects - Cannot be overridden by utilities */
+  .hero-text-shimmer {
+    background: var(--hero-text-shimmer) !important;
+    background-size: 200% 100% !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: hero-text-shimmer 3s ease-in-out infinite !important;
+  }
+
+  /* Brand gradient background utility */
+  .bg-brand-gradient {
+    background-image: var(--brand-gradient) !important;
+  }
 }
 
 /* Hero background */
