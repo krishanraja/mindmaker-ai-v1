@@ -4,8 +4,20 @@ import mindmakerLogo from "@/assets/mindmaker-logo.png";
 
 const Hero = () => {
   return (
-    <section className="hero-clouds min-h-[100dvh] flex items-center justify-center relative overflow-hidden">
-      {/* Content */}
+    <section className="min-h-[100dvh] flex items-center justify-center relative overflow-hidden">
+      {/* Background Layer 1: Mindmaker Animation */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/mindmaker-background.gif"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Background Layer 2: Semi-transparent Purple Overlay */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-br from-[#667eea]/50 to-[#764ba2]/50 backdrop-blur-sm"></div>
+      
+      {/* Content Layer */} 
       <div className="container-width relative z-10 text-center">
         <div className="max-w-6xl mx-auto fade-in-up pt-safe-top pb-16 md:pb-20 px-4">
           {/* Logo */}

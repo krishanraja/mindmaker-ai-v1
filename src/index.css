@@ -154,12 +154,20 @@ body {
 
   /* Bulletproof Text Effects - Cannot be overridden by utilities */
   .hero-text-shimmer {
-    background: var(--hero-text-shimmer) !important;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 1) 75%,
+      rgba(255, 255, 255, 0.8) 100%
+    ) !important;
     background-size: 200% 100% !important;
     background-clip: text !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     animation: hero-text-shimmer 3s ease-in-out infinite !important;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
   }
 
   /* Brand gradient background utility */
@@ -168,29 +176,6 @@ body {
   }
 }
 
-/* Hero background */
-.hero-clouds {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  position: relative;
-}
-
-.hero-clouds::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
