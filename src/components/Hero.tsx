@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, CheckCircle, Layers, Zap } from "lucide-react";
 import mindmakerLogo from "@/assets/mindmaker-logo.png";
+import ExpandableProofCard from "@/components/ExpandableProofCard";
 
 const Hero = () => {
   return (
@@ -10,7 +11,7 @@ const Hero = () => {
         <img 
           src="/mindmaker-background.gif"
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       
@@ -20,8 +21,8 @@ const Hero = () => {
       {/* Content Layer */} 
       <div className="container-width relative z-10 text-center">
         <div className="max-w-6xl mx-auto fade-in-up pt-safe-top pb-12 md:pb-20 px-4 sm:px-6">
-          {/* Logo - Mobile Optimized */}
-          <div className="mb-8 md:mb-10 mt-6 md:mt-12">
+          {/* Logo - Mobile Optimized with Safe Area */}
+          <div className="mb-8 md:mb-10 mt-20 md:mt-12 pt-safe-area-top">
             <img 
               src={mindmakerLogo} 
               alt="MindMaker" 
@@ -73,34 +74,31 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Proof Points - Mobile-Optimized Cards */}
+          {/* Proof Points - Revolutionary Mobile Expandable Cards */}
           <div className="flex flex-col sm:grid sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-sm sm:max-w-4xl mx-auto mb-6 md:mb-8">
-            <div className="glass-card-dark text-center p-4 sm:p-5 md:p-6 rounded-xl">
-              <div className="inline-flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-white/10 rounded-lg mb-3 sm:mb-4">
-                <CheckCircle className="h-5 sm:h-6 w-5 sm:w-6 text-white" aria-hidden="true" />
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white mb-1 sm:mb-2 drop-shadow-sm">5-Minute</div>
-              <div className="text-base sm:text-lg font-semibold text-white mb-1">Assessment</div>
-              <div className="text-white/90 text-sm md:text-base font-medium leading-relaxed tracking-wide">Discover your AI readiness gaps</div>
-            </div>
+            <ExpandableProofCard
+              icon={CheckCircle}
+              title="5-Minute"
+              subtitle="Assessment"
+              description="Discover your AI readiness gaps"
+              expandedContent="Take our scientifically-designed assessment to identify exactly where you stand in your AI literacy journey. Get personalized insights and recommendations tailored to your current knowledge level and professional needs."
+            />
             
-            <div className="glass-card-dark text-center p-4 sm:p-5 md:p-6 rounded-xl">
-              <div className="inline-flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-white/10 rounded-lg mb-3 sm:mb-4">
-                <Layers className="h-5 sm:h-6 w-5 sm:w-6 text-white" aria-hidden="true" />
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white mb-1 sm:mb-2 drop-shadow-sm">4-Phase</div>
-              <div className="text-base sm:text-lg font-semibold text-white mb-1">Methodology</div>
-              <div className="text-white/90 text-sm md:text-base font-medium leading-relaxed tracking-wide">Structured learning with measurable outcomes</div>
-            </div>
+            <ExpandableProofCard
+              icon={Layers}
+              title="4-Phase"
+              subtitle="Methodology"
+              description="Structured learning with measurable outcomes"
+              expandedContent="Our proven 4-phase approach takes you from AI-confused to AI-confident through Foundation, Application, Integration, and Mastery stages. Each phase builds systematically with clear milestones and practical exercises."
+            />
             
-            <div className="glass-card-dark text-center p-4 sm:p-5 md:p-6 rounded-xl">
-              <div className="inline-flex items-center justify-center w-10 sm:w-12 h-10 sm:h-12 bg-white/10 rounded-lg mb-3 sm:mb-4">
-                <Zap className="h-5 sm:h-6 w-5 sm:w-6 text-white" aria-hidden="true" />
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-white mb-1 sm:mb-2 drop-shadow-sm">Start</div>
-              <div className="text-base sm:text-lg font-semibold text-white mb-1">Day One</div>
-              <div className="text-white/90 text-sm md:text-base font-medium leading-relaxed tracking-wide">Apply AI thinking in your first session</div>
-            </div>
+            <ExpandableProofCard
+              icon={Zap}
+              title="Start"
+              subtitle="Day One"
+              description="Apply AI thinking in your first session"
+              expandedContent="No theory-only learning here. From your very first session, you'll be applying AI concepts to real scenarios in your industry. Start seeing immediate value and building confidence from day one."
+            />
           </div>
 
 

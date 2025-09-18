@@ -126,9 +126,13 @@ body {
   @apply p-4 sm:p-6 md:p-8;
 }
 
-/* Mobile viewport utilities */
+/* Mobile viewport utilities with safe area support */
 .pt-safe-top {
   padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.pt-safe-area-top {
+  padding-top: max(5rem, env(safe-area-inset-top, 5rem));
 }
 
 .pb-safe-bottom {
