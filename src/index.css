@@ -176,10 +176,10 @@ body {
 
 @keyframes hero-text-shimmer {
   0% {
-    background-position: -200% center;
+    background-position: 200% center;
   }
   100% {
-    background-position: 200% center;
+    background-position: -200% center;
   }
 }
 
@@ -192,17 +192,17 @@ body {
   .hero-text-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 1) 20%,
-      rgba(255, 255, 255, 1) 40%,
-      rgba(255, 255, 255, 0.4) 100%
+      #ffffff 0%,
+      #ffffff 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      #ffffff 60%,
+      #ffffff 100%
     ) !important;
-    background-size: 200% 100% !important;
+    background-size: 200% auto !important;
     background-clip: text !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     animation: hero-text-shimmer 3s linear infinite !important;
-    filter: drop-shadow(0 2px 8px rgba(255,255,255,0.3));
   }
 
   /* Brand gradient background utility */
