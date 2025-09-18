@@ -68,59 +68,59 @@ const phases = [
   return (
     <section className="section-padding bg-muted">
       <div className="container-width">
-        <div className="text-center mb-20 fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 fade-in-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6">
             From <span className="text-primary">AI-Confused</span> to <span className="text-primary">AI-Confident</span>
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto mb-4">
+          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto mb-3 sm:mb-4">
             Our proven cognitive learning methodology transforms teams through structured literacy development. 
             Each phase builds deep understanding while cultivating practical AI reasoning capabilities.
           </p>
-          <div className="flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground">
+          <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-medium text-muted-foreground">
             <span className="text-primary font-semibold">ASSESS</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
             <span className="text-primary font-semibold">ABSORB</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
             <span className="text-primary font-semibold">APPLY</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
             <span className="text-primary font-semibold">ACCELERATE</span>
           </div>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-16 sm:space-y-20 md:space-y-24">
           {phases.map((phase, index) => (
-            <div key={index} className={`grid lg:grid-cols-2 gap-12 items-center fade-in-up ${
+            <div key={index} className={`grid lg:grid-cols-2 gap-8 sm:gap-12 items-center fade-in-up ${
               index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
             }`} style={{animationDelay: `${index * 0.2}s`}}>
               
               {/* Content */}
               <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-4xl font-bold text-primary">
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                  <div className="text-3xl sm:text-4xl font-bold text-primary">
                     {phase.number}
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wide">{phase.title}</h3>
-                    <p className="text-sm font-normal leading-relaxed text-muted-foreground">{phase.subtitle}</p>
+                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide">{phase.title}</h3>
+                    <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground">{phase.subtitle}</p>
                   </div>
                 </div>
                 
-                <div className="mb-6">
-                  <h4 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3">Goal:</h4>
-                  <p className="text-sm font-normal leading-relaxed text-muted-foreground">{phase.goal}</p>
+                <div className="mb-4 sm:mb-6">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-foreground mb-2 sm:mb-3">Goal:</h4>
+                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground">{phase.goal}</p>
                 </div>
                 
-                <p className="text-sm font-normal leading-relaxed text-muted-foreground mb-8">
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-6 sm:mb-8">
                   {phase.description}
                 </p>
                 
-                <div className="mb-8">
-                  <h4 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4">Key Benefits:</h4>
-                  <ul className="space-y-3">
+                <div className="mb-6 sm:mb-8">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-foreground mb-3 sm:mb-4">Key Benefits:</h4>
+                  <ul className="space-y-2 sm:space-y-3">
                     {phase.benefits.map((benefit, benefitIndex) => (
                       <li key={benefitIndex} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-primary rounded-full" />
-                        <span className="text-sm font-normal leading-relaxed text-muted-foreground">{benefit}</span>
+                        <span className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground">{benefit}</span>
                       </li>
                     ))}
                   </ul>
@@ -130,16 +130,16 @@ const phases = [
               
               {/* Visual */}
               <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                <div className="glass-card p-12 text-center">
-                  <div className="inline-flex items-center justify-center w-24 h-24 bg-primary text-white rounded-2xl mb-8">
-                    <phase.icon className="h-12 w-12" />
+                <div className="glass-card p-8 sm:p-10 md:p-12 text-center rounded-xl">
+                  <div className="inline-flex items-center justify-center w-20 sm:w-24 h-20 sm:h-24 bg-primary text-white rounded-2xl mb-6 sm:mb-8">
+                    <phase.icon className="h-10 sm:h-12 w-10 sm:w-12" />
                   </div>
                   
-                  <div className="text-6xl font-bold text-primary mb-4">
+                  <div className="text-5xl sm:text-6xl font-bold text-primary mb-3 sm:mb-4">
                     {phase.number}
                   </div>
                   
-                  <h3 className="text-sm font-bold uppercase tracking-wide text-foreground">
+                  <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-foreground">
                     {phase.title}
                   </h3>
                 </div>

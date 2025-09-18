@@ -47,37 +47,37 @@ const AudienceOutcomesSection = () => {
   return (
     <section className="section-padding bg-background">
       <div className="container-width">
-        <div className="text-center mb-16 fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in-up">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6">
             Your{" "}
             <span className="text-primary">
               Transformation Outcome
             </span>
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto px-4">
             Different audiences, different outcomes. Same proven methodology that delivers results.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 sm:gap-8">
           {outcomes.map((outcome, index) => (
-            <div key={index} className="card p-8 fade-in-up flex flex-col h-full" style={{animationDelay: `${index * 0.1}s`}}>
-              <div className="text-center mb-8 min-h-[280px] flex flex-col">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary text-white rounded-xl mb-4">
-                  <img src={outcome.icon} alt="MindMaker Icon" className="h-8 w-8" />
+            <div key={index} className="card p-6 sm:p-8 fade-in-up flex flex-col h-full rounded-xl" style={{animationDelay: `${index * 0.1}s`}}>
+              <div className="text-center mb-6 sm:mb-8 lg:min-h-[280px] flex flex-col">
+                <div className="inline-flex items-center justify-center w-14 sm:w-16 h-14 sm:h-16 bg-primary text-white rounded-xl mb-4 mx-auto">
+                  <img src={outcome.icon} alt="MindMaker Icon" className="h-7 sm:h-8 w-7 sm:w-8" />
                 </div>
-                <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-2">
+                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-foreground mb-2">
                   {outcome.audience}
                 </h3>
-                <h4 className="text-2xl font-bold text-primary mb-4">
+                <h4 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">
                   {outcome.outcome}
                 </h4>
-                <p className="text-sm font-normal leading-relaxed text-muted-foreground">
+                <p className="text-sm sm:text-sm font-normal leading-relaxed text-muted-foreground">
                   {outcome.description}
                 </p>
               </div>
               
-              <div className="space-y-3 mb-8 flex-1">
+              <div className="space-y-3 mb-6 sm:mb-8 flex-1">
                 {outcome.benefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
@@ -90,7 +90,8 @@ const AudienceOutcomesSection = () => {
               
               <Button 
                 asChild
-                className="w-full bg-primary hover:bg-primary-600 text-white mt-auto"
+                size="lg"
+                className="w-full bg-primary hover:bg-primary-600 text-white mt-auto min-h-[48px] text-sm sm:text-base font-semibold rounded-lg"
               >
                 <a 
                   href={

@@ -85,32 +85,32 @@ const PathwaysSection = () => {
     const isLeadership = module.track === "LEADERSHIP";
     
     return (
-      <div key={module.id} className={`glass-card p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full ${!isCoreModule ? 'opacity-75' : ''}`}>
+      <div key={module.id} className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule ? 'opacity-75' : ''}`}>
         {/* Header Section - Fixed Height */}
-        <div className="min-h-[120px] flex flex-col">
+        <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
           {/* Badge */}
-          <div className="flex justify-end mb-4">
+          <div className="flex justify-end mb-3 sm:mb-4">
             {isCoreModule ? (
-              <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">
+              <span className="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                 Start Here
               </span>
             ) : (
-              <span className="bg-muted text-muted-foreground px-3 py-1 rounded-full text-xs font-medium">
+              <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                 Unlock Later
               </span>
             )}
           </div>
           
           {/* Icon and Credits */}
-          <div className="flex items-center justify-between w-full mb-4">
-            <div className={`w-12 h-12 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-              <IconComponent className={`w-6 h-6 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
+          <div className="flex items-center justify-between w-full mb-3 sm:mb-4">
+            <div className={`w-10 sm:w-12 h-10 sm:h-12 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
+              <IconComponent className={`w-5 sm:w-6 h-5 sm:h-6 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
             </div>
             <div className="flex flex-col items-end gap-1">
               <span className={`text-xs ${isLeadership ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'} px-2 py-1 rounded-full font-medium`}>
                 {module.track}
               </span>
-              <span className={`text-lg font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
+              <span className={`text-base sm:text-lg font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
                 {module.credits}
               </span>
               <span className="text-xs text-muted-foreground">credits</span>
@@ -118,14 +118,14 @@ const PathwaysSection = () => {
           </div>
           
           {/* Title */}
-          <h4 className={`text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-3`}>
+          <h4 className={`text-xs sm:text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-2 sm:mb-3`}>
             {module.title}
           </h4>
         </div>
         
         {/* Content Section - Flexible Height */}
         <div className="flex-1 flex flex-col">
-          <p className="text-sm font-normal leading-relaxed text-muted-foreground mb-6 flex-1">
+          <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-4 sm:mb-6 flex-1">
             {module.description}
           </p>
           
@@ -134,7 +134,7 @@ const PathwaysSection = () => {
             asChild
             variant="outline" 
             size="sm" 
-            className="group w-full mt-auto"
+            className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
           >
             <a 
               href={
@@ -157,46 +157,46 @@ const PathwaysSection = () => {
   };
 
   return (
-    <section className="py-20 bg-secondary/20">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6 text-foreground">AI MindMaker Program Modules</h2>
-          <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-4xl mx-auto mb-8">
+    <section className="section-padding bg-secondary/20">
+      <div className="container-width">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">AI MindMaker Program Modules</h2>
+          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8">
             <strong>Agentic AI Sprints for Commercial Product Strategy Team Literacy</strong><br/>
             Personalized AI literacy → product strategy sprints with decades of media industry experience
           </p>
-          <div className="bg-primary/10 text-primary px-4 py-2 rounded-full inline-block text-sm font-medium mb-8">
+          <div className="bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full inline-block text-xs sm:text-sm font-medium mb-6 sm:mb-8">
             Start with Core Pillars • Build Your Foundation First
           </div>
         </div>
 
         {/* Core Program Pillars */}
-        <div className="mb-16">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-2">Core Program Pillars</h3>
-            <p className="text-muted-foreground">Essential modules to establish your AI foundation</p>
+        <div className="mb-12 sm:mb-16">
+          <div className="text-center mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Core Program Pillars</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">Essential modules to establish your AI foundation</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {coreModules.map((module) => renderModule(module, true))}
           </div>
         </div>
 
         {/* Additional Specialized Modules */}
-        <div className="mb-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-2">Additional Specialized Modules</h3>
-            <p className="text-muted-foreground">Advanced modules you can unlock as you progress</p>
+        <div className="mb-8 sm:mb-12">
+          <div className="text-center mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">Additional Specialized Modules</h3>
+            <p className="text-sm sm:text-base text-muted-foreground">Advanced modules you can unlock as you progress</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
             {specializedModules.map((module) => renderModule(module, false))}
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-sm text-muted-foreground mb-4">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
             These are just some of our available modules - tailored upon further discovery
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs sm:text-sm text-muted-foreground">
             Reach out to <a href="mailto:krish@fractionl.ai" className="text-primary hover:underline font-medium">krish@fractionl.ai</a> to discuss your needs
           </p>
         </div>
