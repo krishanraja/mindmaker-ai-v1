@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import mindmakerLogo from "@/assets/mindmaker-logo.png";
+import InteractiveTimeline from "./InteractiveTimeline";
 
 const Hero = () => {
   return (
@@ -73,20 +74,9 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Key Stats Integration */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-6 md:mb-8">
-            <div className="text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">Qualified</div>
-              <div className="text-xs sm:text-sm text-white/80">Educator & Teacher</div>
-            </div>
-            <div className="text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">Advanced</div>
-              <div className="text-xs sm:text-sm text-white/80">Academic Credentials</div>
-            </div>
-            <div className="text-center">
-              <div className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">200+</div>
-              <div className="text-xs sm:text-sm text-white/80">Minds Transformed</div>
-            </div>
+          {/* Interactive AI Timeline */}
+          <div className="mb-6 md:mb-8">
+            <InteractiveTimeline />
           </div>
 
 
