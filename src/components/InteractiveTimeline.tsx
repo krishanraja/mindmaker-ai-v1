@@ -264,7 +264,7 @@ const InteractiveTimeline = () => {
   return (
     <div 
       ref={containerRef}
-      className="w-full max-w-4xl mx-auto mb-16 md:mb-20 px-4 sm:px-6 select-none"
+      className="w-full max-w-4xl mx-auto px-4 sm:px-6 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}

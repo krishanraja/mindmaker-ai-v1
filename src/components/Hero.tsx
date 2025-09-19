@@ -44,7 +44,7 @@ const Hero = () => {
           </p>
           
           {/* CTA Buttons - Mobile-First Design */}
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 md:gap-6 mb-4 md:mb-6 max-w-lg sm:max-w-none mx-auto">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 md:gap-6 mb-8 md:mb-12 max-w-lg sm:max-w-none mx-auto">
             {/* Primary CTA - Book a Call */}
             <Button 
               variant="hero-primary"
@@ -94,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* Interactive AI Timeline */}
-          <div className="mb-6 md:mb-8">
+          <div>
             <InteractiveTimeline />
           </div>
 
