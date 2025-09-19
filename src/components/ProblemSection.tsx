@@ -19,7 +19,7 @@ const ProblemSection = () => {
       audience: "Leaders",
       problem: "Drowning in AI noise",
       quote: "I know AI will change everything, but I don't know where to start or who to trust",
-      pain: "Paralyzed by hype, burning resources on tools that aren't adopted evenly",
+      pain: "Hype-paralysis, burning resources on tools that aren't adopted evenly",
       icon: Users,
     },
     {
