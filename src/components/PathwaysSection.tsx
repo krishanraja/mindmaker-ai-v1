@@ -181,66 +181,58 @@ const PathwaysSection = () => {
     const isExpanded = expandedModules[module.id];
     const hasLevel3 = !isCoreModule && level3Modules[module.id as keyof typeof level3Modules];
     
+    // For specialized modules with Level 3 content, just return the card (Collapsible is handled in parent)
     if (!isCoreModule && hasLevel3) {
       return (
-        <Collapsible key={module.id} open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
-          <CollapsibleTrigger asChild>
-            <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl opacity-75 cursor-pointer`}>
-              {/* Header Section - Fixed Height */}
-              <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
-                {/* Badge */}
-                <div className="flex justify-end mb-3 sm:mb-4">
-                  <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
-                    Unlock Later
-                  </span>
-                </div>
-                
-                {/* Icon and Credits */}
-                <div className="flex items-center justify-between w-full mb-3 sm:mb-4">
-                  <div className={`w-10 sm:w-12 h-10 sm:h-12 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <IconComponent className={`w-5 sm:w-6 h-5 sm:h-6 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
-                  </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <span className={`text-xs ${isLeadership ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'} px-2 py-1 rounded-full font-medium`}>
-                      {module.track}
-                    </span>
-                    <span className={`text-base sm:text-lg font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
-                      {module.credits}
-                    </span>
-                    <span className="text-xs text-muted-foreground">credits</span>
-                  </div>
-                </div>
-                
-                {/* Title */}
-                <h4 className={`text-xs sm:text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-2 sm:mb-3`}>
-                  {module.title}
-                </h4>
+        <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl opacity-75 cursor-pointer`}>
+          {/* Header Section - Fixed Height */}
+          <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
+            {/* Badge */}
+            <div className="flex justify-end mb-3 sm:mb-4">
+              <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
+                Unlock Later
+              </span>
+            </div>
+            
+            {/* Icon and Credits */}
+            <div className="flex items-center justify-between w-full mb-3 sm:mb-4">
+              <div className={`w-10 sm:w-12 h-10 sm:h-12 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                <IconComponent className={`w-5 sm:w-6 h-5 sm:h-6 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
               </div>
-              
-              {/* Content Section - Flexible Height */}
-              <div className="flex-1 flex flex-col">
-                <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-4 sm:mb-6 flex-1">
-                  {module.description}
-                </p>
-                
-                {/* Button Section - Bottom Aligned */}
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm animate-pulse"
-                >
-                  {isExpanded ? 'Collapse' : 'Unlock'}
-                  <ArrowRight className={`ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-                </Button>
+              <div className="flex flex-col items-end gap-1">
+                <span className={`text-xs ${isLeadership ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'} px-2 py-1 rounded-full font-medium`}>
+                  {module.track}
+                </span>
+                <span className={`text-base sm:text-lg font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
+                  {module.credits}
+                </span>
+                <span className="text-xs text-muted-foreground">credits</span>
               </div>
             </div>
-          </CollapsibleTrigger>
+            
+            {/* Title */}
+            <h4 className={`text-xs sm:text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-2 sm:mb-3`}>
+              {module.title}
+            </h4>
+          </div>
           
-          {/* Level 3 Module - Outside the card */}
-          <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
-            {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
-          </CollapsibleContent>
-        </Collapsible>
+          {/* Content Section - Flexible Height */}
+          <div className="flex-1 flex flex-col">
+            <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-4 sm:mb-6 flex-1">
+              {module.description}
+            </p>
+            
+            {/* Button Section - Bottom Aligned */}
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm animate-pulse"
+            >
+              {isExpanded ? 'Collapse' : 'Unlock'}
+              <ArrowRight className={`ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+            </Button>
+          </div>
+        </div>
       );
     }
     
@@ -345,8 +337,31 @@ const PathwaysSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-8">
             {coreModules.map((module) => renderModule(module, true))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
-            {specializedModules.map((module) => renderModule(module, false))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto specialized-modules-grid">
+            {specializedModules.map((module) => {
+              const hasLevel3 = level3Modules[module.id as keyof typeof level3Modules];
+              const isExpanded = expandedModules[module.id];
+              
+              if (hasLevel3) {
+                return (
+                  <div key={module.id} className="specialized-module-container">
+                    <Collapsible open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
+                      <CollapsibleTrigger asChild>
+                        <div className="specialized-module-trigger">
+                          {renderModule(module, false)}
+                        </div>
+                      </CollapsibleTrigger>
+                      
+                      <CollapsibleContent className="specialized-module-content overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+                        {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
+                      </CollapsibleContent>
+                    </Collapsible>
+                  </div>
+                );
+              }
+              
+              return renderModule(module, false);
+            })}
           </div>
         </div>
 
