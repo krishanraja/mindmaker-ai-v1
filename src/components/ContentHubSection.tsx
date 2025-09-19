@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, BookOpen, BarChart3, Target, Lightbulb } from "lucide-react";
+import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 
 const ContentHubSection = () => {
   return (
@@ -21,7 +22,10 @@ const ContentHubSection = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <ResponsiveCardGrid 
+            desktopGridClass="grid md:grid-cols-3 gap-6 mb-8"
+            className="mb-8"
+          >
             <div className="glass-card p-6 text-center">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-5 h-5 text-primary" />
@@ -45,7 +49,7 @@ const ContentHubSection = () => {
               <h3 className="font-semibold text-foreground mb-2">Expert Insights</h3>
               <p className="text-sm text-muted-foreground">Exclusive content from industry leaders</p>
             </div>
-          </div>
+          </ResponsiveCardGrid>
           
           <Button asChild variant="cta" size="lg">
             <a href="https://learning.fractionl.ai/" target="_blank" rel="noopener noreferrer" className="group">

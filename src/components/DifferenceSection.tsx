@@ -1,4 +1,5 @@
 import { CheckCircle, Zap, Users, Target, Briefcase } from "lucide-react";
+import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 
 const DifferenceSection = () => {
   const differences = [
@@ -48,7 +49,9 @@ const DifferenceSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ResponsiveCardGrid 
+          desktopGridClass="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {differences.map((difference, index) => (
             <div key={index} className="card p-8 fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="flex items-start gap-4 mb-6">
@@ -69,7 +72,7 @@ const DifferenceSection = () => {
               </p>
             </div>
           ))}
-        </div>
+        </ResponsiveCardGrid>
       </div>
     </section>
   );

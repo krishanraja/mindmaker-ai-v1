@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import mindmakerIconLight from "@/assets/mindmaker-icon-light.png";
+import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 
 const AudienceOutcomesSection = () => {
   const outcomes = [
@@ -58,7 +59,9 @@ const AudienceOutcomesSection = () => {
           </p>
         </div>
         
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 sm:gap-8">
+        <ResponsiveCardGrid 
+          desktopGridClass="flex flex-col lg:grid lg:grid-cols-3 gap-6 sm:gap-8"
+        >
           {outcomes.map((outcome, index) => (
             <div key={index} className="card p-6 sm:p-8 fade-in-up flex flex-col h-full rounded-xl" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="text-center mb-6 sm:mb-8 lg:min-h-[280px] flex flex-col">
@@ -106,7 +109,7 @@ const AudienceOutcomesSection = () => {
               </Button>
             </div>
           ))}
-        </div>
+        </ResponsiveCardGrid>
       </div>
     </section>
   );
