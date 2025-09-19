@@ -184,13 +184,10 @@ html {
 
 @keyframes hero-text-shimmer {
   0% { 
-    background-position: -100% center;
-  }
-  50% {
-    background-position: 0% center;
+    background-position: -200% center;
   }
   100% { 
-    background-position: 100% center;
+    background-position: 200% center;
   }
 }
 
@@ -203,15 +200,18 @@ html {
   .hero-text-shimmer {
     background: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.8) 20%,
       rgba(255, 255, 255, 1) 50%,
-      rgba(255, 255, 255, 0.7) 100%
+      rgba(255, 255, 255, 0.8) 80%,
+      rgba(255, 255, 255, 0.4) 100%
     );
-    background-size: 200% 100%;
+    background-size: 400% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: hero-text-shimmer 8s linear infinite;
+    animation: hero-text-shimmer 6s ease-in-out 2s infinite;
+    animation-fill-mode: forwards;
     will-change: background-position;
   }
 
