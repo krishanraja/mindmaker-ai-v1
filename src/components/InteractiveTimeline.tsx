@@ -264,8 +264,7 @@ const InteractiveTimeline = () => {
   return (
     <div 
       ref={containerRef}
-      className="w-full mx-auto mb-12 px-4 sm:px-6 select-none"
-      style={{ width: '896px', maxWidth: '100%' }}
+      className="w-full max-w-4xl mx-auto mb-12 px-4 sm:px-6 select-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
@@ -274,8 +273,8 @@ const InteractiveTimeline = () => {
     >
       {/* Header */}
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight">
-          Explore the journey you're joining
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 tracking-tight">
+          Explore your AI journey
         </h2>
         <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto"></div>
       </div>
@@ -284,7 +283,7 @@ const InteractiveTimeline = () => {
       <div className="mb-8">
         <div className="relative h-16">
           {/* Wavy progress track */}
-          <svg className="w-full h-full" viewBox="0 0 800 64" preserveAspectRatio="none">
+          <svg className="w-full h-full overflow-visible" viewBox="0 0 800 64" preserveAspectRatio="none">
             <defs>
               <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
@@ -402,7 +401,7 @@ const InteractiveTimeline = () => {
                 {currentItem.impact}
               </h4>
               <div className="max-w-sm mx-auto px-2 sm:max-w-md md:max-w-lg"> 
-                <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm whitespace-nowrap">
+                <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm text-balance">
                   {currentItem.meaning}
                 </p>
               </div>
