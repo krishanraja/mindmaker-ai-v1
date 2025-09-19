@@ -43,7 +43,7 @@ const InteractiveTimeline = () => {
       title: "Watson Wins Jeopardy!",
       description: "IBM's Watson defeats human champions at complex trivia",
       impact: "What this means for you:",
-      meaning: "AI processes information instantly - your value is interpretation and wisdom.",
+      meaning: "AI processes information instantly - your value is wisdom.",
       icon: Lightbulb,
       gradientStep: 2
     },
@@ -52,7 +52,7 @@ const InteractiveTimeline = () => {
       title: "AlphaGo's Breakthrough", 
       description: "AI masters the ancient game of Go through intuitive learning",
       impact: "What this means for you:",
-      meaning: "AI can be creative and intuitive - embrace hybrid human-AI collaboration.",
+      meaning: "AI can be creative and intuitive - embrace collaboration.",
       icon: Zap,
       gradientStep: 3
     },
@@ -79,7 +79,7 @@ const InteractiveTimeline = () => {
       title: "AI Agents Emerge",
       description: "AI systems begin completing complex multi-step autonomous tasks",
       impact: "What this means for you:",
-      meaning: "The future belongs to those who can orchestrate AI agents effectively.",
+      meaning: "The future belongs to those who orchestrate AI agents.",
       icon: Bot,
       gradientStep: 6
     },
@@ -232,42 +232,32 @@ const InteractiveTimeline = () => {
 
   const dotPositions = getProportionalPositions();
 
-  // Calculate Y position on wavy path for each dot
+  // Calculate Y position on wavy path for each dot using proper Bezier math
   const getWavyYPosition = (xPercent: number) => {
     // Convert percentage to SVG coordinates (0-800)
     const x = (xPercent / 100) * 800;
     
     // Wavy path: M0,32 Q100,20 200,32 T400,32 Q500,44 600,32 T800,32
-    // Approximate the curve with segments
+    // Use proper quadratic Bezier curve calculations
     if (x <= 200) {
-      // First curve: 0,32 -> 100,20 -> 200,32
-      if (x <= 100) {
-        // Quadratic curve from (0,32) to (100,20)
-        const t = x / 100;
-        return 32 + (20 - 32) * (2 * t - t * t);
-      } else {
-        // Quadratic curve from (100,20) to (200,32)
-        const t = (x - 100) / 100;
-        return 20 + (32 - 20) * (2 * t - t * t);
-      }
+      // First curve: Q100,20 from (0,32) to (200,32)
+      const t = x / 200;
+      // Quadratic Bezier: B(t) = (1-t)²P₀ + 2(1-t)tP₁ + t²P₂
+      return Math.pow(1-t, 2) * 32 + 2 * (1-t) * t * 20 + Math.pow(t, 2) * 32;
     } else if (x <= 400) {
-      // Smooth continuation to (400,32)
+      // T400,32 - smooth continuation using implicit control point
       const t = (x - 200) / 200;
-      return 32; // Relatively flat section
+      // Control point is reflection of previous: (300,44)
+      return Math.pow(1-t, 2) * 32 + 2 * (1-t) * t * 44 + Math.pow(t, 2) * 32;
     } else if (x <= 600) {
-      // Curve down then up: 400,32 -> 500,44 -> 600,32
-      if (x <= 500) {
-        // Curve down to (500,44)
-        const t = (x - 400) / 100;
-        return 32 + (44 - 32) * (2 * t - t * t);
-      } else {
-        // Curve back up to (600,32)
-        const t = (x - 500) / 100;
-        return 44 + (32 - 44) * (2 * t - t * t);
-      }
+      // Q500,44 from (400,32) to (600,32)
+      const t = (x - 400) / 200;
+      return Math.pow(1-t, 2) * 32 + 2 * (1-t) * t * 44 + Math.pow(t, 2) * 32;
     } else {
-      // Final section to (800,32)
-      return 32;
+      // T800,32 - smooth continuation 
+      const t = (x - 600) / 200;
+      // Control point is reflection: (700,20)
+      return Math.pow(1-t, 2) * 32 + 2 * (1-t) * t * 20 + Math.pow(t, 2) * 32;
     }
   };
 
@@ -411,9 +401,11 @@ const InteractiveTimeline = () => {
               <h4 className="text-white/90 font-bold mb-3 text-sm sm:text-base text-center tracking-widest uppercase">
                 {currentItem.impact}
               </h4>
-              <p className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm line-clamp-1 overflow-hidden text-ellipsis whitespace-nowrap px-2">
-                {currentItem.meaning}
-              </p>
+              <div className="max-w-lg mx-auto px-2"> 
+                <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm line-clamp-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                  {currentItem.meaning}
+                </p>
+              </div>
             </div>
           </div>
         </div>
