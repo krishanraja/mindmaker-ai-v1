@@ -209,7 +209,7 @@ html {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: hero-text-shimmer 4s linear 2s 1;
+    animation: hero-text-shimmer 10s linear 2s 1;
     animation-fill-mode: forwards;
   }
 
