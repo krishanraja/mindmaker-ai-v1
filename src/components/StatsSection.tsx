@@ -32,13 +32,13 @@ const StatsSection = () => {
       <div className="container-width">
         <div className="text-center mb-10 sm:mb-12 md:mb-16 fade-in-up">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-3 sm:mb-4">
-            The World's First{" "}
+            Ready To Help{" "}
             <span className="text-primary">
-              AI Literacy Accelerator
+              You
             </span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
-            Becoming AI literate is the essential pre-game before you become an AI orchestrator or AI leader. We're here to help you level up.
+            AI literacy is essential to become an AI orchestrator or AI leader. We're here to help you.
           </p>
         </div>
         
