@@ -34,7 +34,7 @@ const InteractiveTimeline = () => {
       title: "Deep Blue Beats Chess Master",
       description: "AI defeats world chess champion Garry Kasparov in historic match",
       impact: "What this means for you:",
-      meaning: "AI excels at strategic thinking - learn to collaborate, not compete.",
+      meaning: "AI excels at strategic thinking - learn to collaborate.",
       icon: Target,
       gradientStep: 1
     },
@@ -61,7 +61,7 @@ const InteractiveTimeline = () => {
       title: "GPT-3 Revolution",
       description: "AI begins writing, coding, and creating at human-level quality",
       impact: "What this means for you:",
-      meaning: "AI is your creative partner - focus on prompting, editing, and strategy.",
+      meaning: "AI is your creative partner - focus on strategy and prompting.",
       icon: Rocket,
       gradientStep: 4
     },
@@ -70,7 +70,7 @@ const InteractiveTimeline = () => {
       title: "ChatGPT Goes Viral",
       description: "1 million users in 5 days - AI enters mainstream consciousness",
       impact: "What this means for you:",
-      meaning: "AI literacy is now as essential as digital literacy was in the 90s.",
+      meaning: "AI literacy is as essential as digital literacy was in the 90s.",
       icon: Users,
       gradientStep: 5
     },
@@ -88,7 +88,7 @@ const InteractiveTimeline = () => {
       title: "Your AI Literacy Journey",
       description: "You decide how AI shapes your future - starting today",
       impact: "What this means for you:",
-      meaning: "You have the power to shape how AI impacts your life and career.",
+      meaning: "You have the power to shape how AI impacts your future.",
       icon: Star,
       gradientStep: 7
     }
@@ -401,8 +401,8 @@ const InteractiveTimeline = () => {
               <h4 className="text-white/90 font-bold mb-3 text-sm sm:text-base text-center tracking-widest uppercase">
                 {currentItem.impact}
               </h4>
-              <div className="max-w-lg mx-auto px-2"> 
-                <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm line-clamp-1 overflow-hidden text-ellipsis whitespace-nowrap">
+              <div className="max-w-sm mx-auto px-2 sm:max-w-md md:max-w-lg"> 
+                <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg font-semibold leading-relaxed text-center tracking-wide drop-shadow-sm whitespace-nowrap">
                   {currentItem.meaning}
                 </p>
               </div>
