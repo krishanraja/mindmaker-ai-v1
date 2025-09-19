@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const PathwaysSection = () => {
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({});
+  const [showSpecializedModules, setShowSpecializedModules] = useState(false);
 
   const coreModules = [
     {
@@ -310,14 +311,9 @@ const PathwaysSection = () => {
               variant="outline" 
               size="sm" 
               className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
-              onClick={() => {
-                const coreModulesSection = document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4');
-                if (coreModulesSection) {
-                  coreModulesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => setShowSpecializedModules(true)}
             >
-              Unlock
+              Unlock Advanced
               <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
             </Button>
           )}
@@ -333,41 +329,58 @@ const PathwaysSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">AI Literacy-to-Strategy Sprints</h2>
         </div>
 
-        {/* All Program Modules */}
+        {/* Core Modules - Always Visible */}
         <div className="mb-8 sm:mb-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-8">
             {coreModules.map((module) => renderModule(module, true))}
           </div>
-          <div className="space-y-4 sm:space-y-6 max-w-7xl mx-auto">
-            {specializedModules.map((module) => {
-              const hasLevel3 = level3Modules[module.id as keyof typeof level3Modules];
-              const isExpanded = expandedModules[module.id];
-              
-              if (hasLevel3) {
-                return (
-                  <Collapsible key={module.id} open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
-                    <CollapsibleTrigger asChild>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 cursor-pointer">
-                        {renderModule(module, false)}
-                      </div>
-                    </CollapsibleTrigger>
-                    
-                    <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                      <div className="mt-4 max-w-7xl mx-auto">
-                        {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
-                      </div>
-                    </CollapsibleContent>
-                  </Collapsible>
-                );
-              }
-              
-              return (
-                <div key={module.id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                  {renderModule(module, false)}
-                </div>
-              );
-            })}
+          
+          {/* Show/Hide Specialized Modules Button */}
+          <div className="text-center mb-8">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowSpecializedModules(!showSpecializedModules)}
+              className="group min-h-[48px] px-8"
+            >
+              {showSpecializedModules ? 'Hide Advanced Modules' : 'Unlock Advanced Modules'}
+              <ArrowRight className={`ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform ${showSpecializedModules ? 'rotate-90' : ''}`} />
+            </Button>
           </div>
+          
+          {/* Specialized Modules - Progressive Disclosure */}
+          {showSpecializedModules && (
+            <div className="space-y-4 sm:space-y-6 max-w-7xl mx-auto animate-fade-in">
+              {specializedModules.map((module) => {
+                const hasLevel3 = level3Modules[module.id as keyof typeof level3Modules];
+                const isExpanded = expandedModules[module.id];
+                
+                if (hasLevel3) {
+                  return (
+                    <Collapsible key={module.id} open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
+                      <CollapsibleTrigger asChild>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 cursor-pointer">
+                          {renderModule(module, false)}
+                        </div>
+                      </CollapsibleTrigger>
+                      
+                      <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                        <div className="mt-4 max-w-7xl mx-auto">
+                          {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  );
+                }
+                
+                return (
+                  <div key={module.id} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    {renderModule(module, false)}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-8 sm:mt-12">

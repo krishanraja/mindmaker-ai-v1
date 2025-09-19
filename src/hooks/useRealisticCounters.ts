@@ -221,7 +221,7 @@ export const useRealisticCounters = ({ isVisible }: UseRealisticCountersOptions)
   // Save state whenever counters change
   useEffect(() => {
     saveState(counters);
-  }, [counters]); // Only depend on counters, not saveState function
+  }, [counters, saveState]); // Fixed: include saveState in dependencies
 
   // Set up timers with consistent 1-2 second intervals for visual impact
   const timerConfigs = [
