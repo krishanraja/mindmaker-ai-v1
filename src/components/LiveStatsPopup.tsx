@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { X, TrendingUp, Users, Search, Brain } from 'lucide-react';
+import React from 'react';
+import { X, TrendingUp, Search, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useRealisticCounters } from '@/hooks/useRealisticCounters';
 
 interface LiveStatsPopupProps {
   isVisible: boolean;
@@ -8,79 +9,31 @@ interface LiveStatsPopupProps {
 }
 
 const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) => {
-  const [counters, setCounters] = useState({
-    dailyReskilling: 847,
-    searchAnxiety: 12400,
-    skillsGap: 73.2
-  });
+  const { counterData, formatNumber, marketSentiment } = useRealisticCounters({ isVisible });
 
-  useEffect(() => {
+  // Auto dismiss after 15 seconds (increased for better UX)
+  React.useEffect(() => {
     if (!isVisible) return;
 
-    const interval = setInterval(() => {
-      const now = new Date();
-      const hours = now.getHours();
-      const isBusinessHours = hours >= 9 && hours <= 17;
-
-      setCounters(prev => ({
-        dailyReskilling: prev.dailyReskilling + (isBusinessHours && Math.random() < 0.7 ? Math.floor(Math.random() * 3) + 1 : 0),
-        searchAnxiety: prev.searchAnxiety + (isBusinessHours ? 
-          Math.floor(Math.random() * 12) + 5 : 
-          Math.floor(Math.random() * 4) + 1),
-        skillsGap: Math.min(99.9, prev.skillsGap + (Math.random() < 0.15 ? 0.1 : 0))
-      }));
-    }, 3000);
-
-    // Auto dismiss after 12 seconds
     const autoDismiss = setTimeout(() => {
       onClose();
-    }, 12000);
+    }, 15000);
 
     return () => {
-      clearInterval(interval);
       clearTimeout(autoDismiss);
     };
   }, [isVisible, onClose]);
 
-  const formatNumber = (num: number): string => {
-    if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + 'M';
-    } else if (num >= 1000) {
-      return Math.round(num).toLocaleString();
-    }
-    return (Math.round(num * 10) / 10).toString();
+  // Map icon names to components
+  const iconMap = {
+    'Search': Search,
+    'Brain': Brain
   };
 
-  const statsData = [
-    {
-      key: 'dailyReskilling',
-      value: counters.dailyReskilling,
-      label: 'Workers needing reskilling daily',
-      icon: Users,
-      color: 'text-destructive',
-      bgColor: 'bg-destructive/10',
-      pulse: true
-    },
-    {
-      key: 'searchAnxiety', 
-      value: counters.searchAnxiety,
-      label: 'Daily "AI will replace me" searches',
-      icon: Search,
-      color: 'text-primary',
-      bgColor: 'bg-primary/10',
-      pulse: true
-    },
-    {
-      key: 'skillsGap',
-      value: counters.skillsGap,
-      label: '% unprepared for AI transformation',
-      icon: Brain,
-      color: 'text-accent',
-      bgColor: 'bg-accent/10',
-      pulse: false,
-      suffix: '%'
-    }
-  ];
+  const statsData = counterData.map(stat => ({
+    ...stat,
+    icon: iconMap[stat.icon as keyof typeof iconMap] || Search
+  }));
 
   if (!isVisible) return null;
 
@@ -134,6 +87,13 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
             );
           })}
         </div>
+
+        {/* Market Context (subtle) */}
+        {marketSentiment.newsContext && marketSentiment.newsContext !== 'Standard market conditions' && (
+          <div className="text-xs text-muted-foreground/80 italic border-t border-border/30 pt-3">
+            Market context: {marketSentiment.newsContext}
+          </div>
+        )}
       </div>
     </div>
   );
