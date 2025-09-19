@@ -186,6 +186,32 @@ const InteractiveTimeline = () => {
     };
   };
 
+  // Calculate proportional positioning based on year gaps
+  const getYearGaps = () => {
+    const years = timelineData.map(item => parseInt(item.year));
+    const gaps = [];
+    for (let i = 1; i < years.length; i++) {
+      gaps.push(years[i] - years[i-1]);
+    }
+    return gaps;
+  };
+
+  const getProportionalPositions = () => {
+    const gaps = getYearGaps();
+    const totalYears = gaps.reduce((sum, gap) => sum + gap, 0);
+    const positions = [0];
+    let cumulative = 0;
+    
+    gaps.forEach(gap => {
+      cumulative += gap;
+      positions.push((cumulative / totalYears) * 100);
+    });
+    
+    return positions;
+  };
+
+  const dotPositions = getProportionalPositions();
+
   return (
     <div 
       ref={containerRef}
@@ -199,71 +225,102 @@ const InteractiveTimeline = () => {
     >
       {/* Header */}
       <div className="text-center mb-8">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
-          The AI Revolution Timeline
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 tracking-tight">
+          Explore the journey you're joining
         </h2>
-        <p className="text-white/70 text-base sm:text-lg font-medium tracking-wide">
-          Tap, swipe, or click to explore each milestone
-        </p>
+        <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto"></div>
       </div>
 
-      {/* Interactive Progress Bar */}
+      {/* Organic Journey Visualization */}
       <div className="mb-8">
-        <div className="relative">
-          {/* Progress track */}
-          <div className="h-1 bg-white/20 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-gradient-to-r from-white/60 to-white/40 rounded-full transition-all duration-700 ease-out"
-              style={{ width: `${((activeItem + 1) / timelineData.length) * 100}%` }}
+        <div className="relative h-16">
+          {/* Wavy progress track */}
+          <svg className="w-full h-full" viewBox="0 0 800 64" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.3)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0.1)" />
+              </linearGradient>
+              <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="rgba(255,255,255,0.8)" />
+                <stop offset="100%" stopColor="rgba(255,255,255,0.5)" />
+              </linearGradient>
+            </defs>
+            
+            {/* Background wavy path */}
+            <path
+              d="M0,32 Q100,20 200,32 T400,32 Q500,44 600,32 T800,32"
+              stroke="url(#pathGradient)"
+              strokeWidth="3"
+              fill="none"
+              className="transition-all duration-700"
             />
-          </div>
+            
+            {/* Active progress path */}
+            <path
+              d="M0,32 Q100,20 200,32 T400,32 Q500,44 600,32 T800,32"
+              stroke="url(#progressGradient)"
+              strokeWidth="3"
+              fill="none"
+              strokeDasharray="1000"
+              strokeDashoffset={1000 - (1000 * ((activeItem + 1) / timelineData.length))}
+              className="transition-all duration-700 ease-out"
+            />
+          </svg>
           
-          {/* Interactive dots */}
-          <div className="flex justify-between items-center mt-6">
-            {timelineData.map((_, index) => (
+          {/* Journey waypoint dots */}
+          <div className="absolute inset-0 flex items-center">
+            {timelineData.map((item, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`relative transition-all duration-500 transform ${
-                  index === activeItem 
-                    ? 'scale-125' 
-                    : index < activeItem 
-                      ? 'scale-100' 
-                      : 'scale-75'
-                }`}
-                aria-label={`Go to ${timelineData[index].year}`}
+                className="absolute transition-all duration-500 transform -translate-x-1/2"
+                style={{ 
+                  left: `${dotPositions[index]}%`,
+                  transform: `translateX(-50%) scale(${
+                    index === activeItem ? 1.4 : index < activeItem ? 1.1 : 0.9
+                  })`,
+                }}
+                aria-label={`Go to ${item.year}: ${item.title}`}
               >
-                <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full transition-all duration-500 ${
+                <div className={`relative w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-500 ${
                   index === activeItem 
-                    ? 'bg-white shadow-lg shadow-white/25 ring-2 ring-white/30 ring-offset-2 ring-offset-transparent' 
+                    ? 'bg-white shadow-lg shadow-white/40 ring-2 ring-white/30' 
                     : index < activeItem 
-                      ? 'bg-white/70 hover:bg-white/90' 
-                      : 'bg-white/30 hover:bg-white/50'
-                }`} />
-                
-                {/* Active indicator pulse */}
-                {index === activeItem && (
-                  <div className="absolute inset-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 animate-ping" />
-                )}
+                      ? 'bg-white/80 hover:bg-white' 
+                      : 'bg-white/40 hover:bg-white/60'
+                }`}>
+                  {/* Active waypoint glow */}
+                  {index === activeItem && (
+                    <div className="absolute inset-0 rounded-full bg-white/30 animate-ping" />
+                  )}
+                  
+                  {/* Year label on hover/active */}
+                  <div className={`absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-bold text-white/80 transition-opacity duration-300 ${
+                    index === activeItem ? 'opacity-100' : 'opacity-0 hover:opacity-70'
+                  }`}>
+                    {item.year}
+                  </div>
+                </div>
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Fixed-Height Content Container */}
-      <div className="relative h-[480px] sm:h-[420px] overflow-hidden">
+      {/* Flexible Content Container */}
+      <div className="relative min-h-[400px] mb-8">
         <div 
-          className="glass-card-dark h-full transition-all duration-700 ease-out transform hover:scale-[1.02] cursor-pointer"
+          className="glass-card-dark transition-all duration-700 ease-out transform hover:scale-[1.02] cursor-pointer"
           style={getGradientStyle(currentItem.gradientStep)}
           onClick={handleContentClick}
           role="button"
           tabIndex={0}
           aria-label="Tap to advance to next milestone"
         >
-          <div className="h-full flex flex-col justify-between p-6 sm:p-8" style={{ width: '100%' }}>
+          <div className="flex flex-col p-6 sm:p-8 space-y-8">
             {/* Top Section - Icon and Year */}
-            <div className="flex flex-col items-center text-center space-y-6" style={{ height: '140px' }}>
+            <div className="flex flex-col items-center text-center space-y-6">
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-700">
                 <currentItem.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
@@ -274,7 +331,7 @@ const InteractiveTimeline = () => {
             </div>
 
             {/* Middle Section - Title and Description */}
-            <div className="flex-1 flex flex-col justify-center text-center space-y-6 px-4" style={{ minHeight: '180px' }}>
+            <div className="flex flex-col text-center space-y-6">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight transition-all duration-700 tracking-tight drop-shadow-md">
                 {currentItem.title}
               </h3>
@@ -284,7 +341,7 @@ const InteractiveTimeline = () => {
             </div>
 
             {/* Bottom Section - Impact */}
-            <div className="bg-gradient-to-r from-white/10 to-white/5 rounded-xl p-4 sm:p-6 border border-white/10 transition-all duration-700" style={{ minHeight: '120px' }}>
+            <div className="bg-gradient-to-r from-white/10 to-white/5 rounded-xl p-4 sm:p-6 border border-white/10 transition-all duration-700">
               <h4 className="text-white/90 font-bold mb-3 text-sm sm:text-base text-center tracking-widest uppercase">
                 {currentItem.impact}
               </h4>
