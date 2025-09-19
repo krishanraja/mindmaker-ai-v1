@@ -17,7 +17,7 @@ const CTASection = () => {
       </div>
 
       <div className="container-width relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-left sm:text-center max-w-4xl mx-auto">
           <div className="mb-8">
             <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white/90 px-6 py-3 rounded-full text-sm font-medium mb-6 gap-3 border border-white/20">
               <div className="flex items-center gap-2">
@@ -40,6 +40,7 @@ const CTASection = () => {
             <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-8 backdrop-blur-sm">
               <p className="text-white font-medium text-lg leading-relaxed">
                 "Businesses that master AI literacy at each level will transform rapidly.
+                <br className="sm:hidden" />
                 <br className="sm:hidden" />
                 <span className="hidden sm:inline"> </span>
                 Those that don't will be forced to fight the ones that do."
