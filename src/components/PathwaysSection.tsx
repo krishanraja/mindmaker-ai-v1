@@ -4,7 +4,7 @@ import { ArrowRight, Users, Megaphone, Target, Cog, Search, Hammer, UserCheck, G
 import { useState } from "react";
 
 const PathwaysSection = () => {
-  const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({});
+  const [expandedLevel3, setExpandedLevel3] = useState<string | null>(null);
   const [showSpecializedModules, setShowSpecializedModules] = useState(false);
 
   const coreModules = [
@@ -121,11 +121,8 @@ const PathwaysSection = () => {
     }
   };
 
-  const toggleModule = (moduleId: string) => {
-    setExpandedModules(prev => ({
-      ...prev,
-      [moduleId]: !prev[moduleId]
-    }));
+  const toggleLevel3 = (moduleId: string) => {
+    setExpandedLevel3(prev => prev === moduleId ? null : moduleId);
   };
 
   const renderLevel3Module = (level3Module: any) => {
@@ -179,61 +176,19 @@ const PathwaysSection = () => {
   const renderModule = (module: any, isCoreModule: boolean = false) => {
     const IconComponent = module.icon;
     const isLeadership = module.track === "LEADERSHIP";
-    const isExpanded = expandedModules[module.id];
     const hasLevel3 = !isCoreModule && level3Modules[module.id as keyof typeof level3Modules];
     
-    // For specialized modules with Level 3 content, return card without onClick (Collapsible handles it)
-    if (!isCoreModule && hasLevel3) {
-      return (
-        <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col rounded-xl cursor-pointer w-full max-w-4xl mx-auto`}>
-          {/* Header Section - Fixed Height */}
-          <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
-            {/* Badge */}
-            <div className="flex justify-end mb-3 sm:mb-4">
-              <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
-                {isExpanded ? 'Expanded' : 'Click to Expand'}
-              </span>
-            </div>
-            
-            {/* Icon and Credits */}
-            <div className="flex items-center justify-between w-full mb-3 sm:mb-4">
-              <div className={`w-10 sm:w-12 h-10 sm:h-12 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                <IconComponent className={`w-5 sm:w-6 h-5 sm:h-6 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
-              </div>
-              <div className="flex flex-col items-end gap-1">
-                <span className={`text-xs ${isLeadership ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'} px-2 py-1 rounded-full font-medium`}>
-                  {module.track}
-                </span>
-                <span className={`text-base sm:text-lg font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
-                  {module.credits}
-                </span>
-                <span className="text-xs text-muted-foreground">credits</span>
-              </div>
-            </div>
-            
-            {/* Title */}
-            <h4 className={`text-xs sm:text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-2 sm:mb-3`}>
-              {module.title}
-            </h4>
-          </div>
-          
-          {/* Content Section - Flexible Height */}
-          <div className="flex-1 flex flex-col">
-            <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-4 sm:mb-6 flex-1">
-              {module.description}
-            </p>
-            
-            {/* Visual indicator - no button needed, entire card is clickable */}
-            <div className="mt-auto flex items-center justify-center">
-              <ArrowRight className={`h-4 w-4 text-accent transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-            </div>
-          </div>
-        </div>
-      );
-    }
+    const handleClick = () => {
+      if (hasLevel3) {
+        toggleLevel3(module.id);
+      }
+    };
     
     return (
-      <div key={module.id} className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule ? 'opacity-75' : ''}`}>
+      <div 
+        className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule ? 'opacity-75' : ''} ${hasLevel3 ? 'cursor-pointer' : ''}`}
+        onClick={hasLevel3 ? handleClick : undefined}
+      >
         {/* Header Section - Fixed Height */}
         <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
           {/* Badge */}
@@ -241,6 +196,10 @@ const PathwaysSection = () => {
             {isCoreModule ? (
               <span className="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                 Start Here
+              </span>
+            ) : hasLevel3 ? (
+              <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
+                {expandedLevel3 === module.id ? 'Expanded' : 'Click to Expand'}
               </span>
             ) : (
               <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
@@ -300,6 +259,10 @@ const PathwaysSection = () => {
                 <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
+          ) : hasLevel3 ? (
+            <div className="mt-auto flex items-center justify-center">
+              <ArrowRight className={`h-4 w-4 text-accent transition-transform ${expandedLevel3 === module.id ? 'rotate-90' : ''}`} />
+            </div>
           ) : (
             <Button 
               variant="outline" 
@@ -344,37 +307,18 @@ const PathwaysSection = () => {
           
           {/* Specialized Modules - Progressive Disclosure */}
           {showSpecializedModules && (
-            <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
-              {specializedModules.map((module) => {
-                const hasLevel3 = level3Modules[module.id as keyof typeof level3Modules];
-                const isExpanded = expandedModules[module.id];
-                
-                if (hasLevel3) {
-                  return (
-                    <Collapsible key={module.id} open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
-                      <div className="w-full">
-                        <CollapsibleTrigger asChild>
-                          <div className="w-full cursor-pointer">
-                            {renderModule(module, false)}
-                          </div>
-                        </CollapsibleTrigger>
-                        
-                        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                          <div className="w-full mt-4">
-                            {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
-                          </div>
-                        </CollapsibleContent>
-                      </div>
-                    </Collapsible>
-                  );
-                }
-                
-                return (
-                  <div key={module.id} className="w-full">
-                    {renderModule(module, false)}
-                  </div>
-                );
-              })}
+            <div className="max-w-7xl mx-auto animate-fade-in">
+              {/* Level 2 Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+                {specializedModules.map((module) => renderModule(module, false))}
+              </div>
+              
+              {/* Level 3 Content - Appears below grid when expanded */}
+              {expandedLevel3 && level3Modules[expandedLevel3 as keyof typeof level3Modules] && (
+                <div className="animate-fade-in">
+                  {renderLevel3Module(level3Modules[expandedLevel3 as keyof typeof level3Modules])}
+                </div>
+              )}
             </div>
           )}
         </div>
