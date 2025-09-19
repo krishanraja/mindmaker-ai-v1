@@ -271,13 +271,6 @@ const InteractiveTimeline = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Header */}
-      <div className="text-center mb-3 sm:mb-6">
-        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-6 tracking-tight">
-          Explore your AI journey
-        </h2>
-        <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto"></div>
-      </div>
 
       {/* Organic Journey Visualization */}
       <div className="mb-4 sm:mb-8">
