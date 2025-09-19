@@ -19,14 +19,14 @@ const ProblemSection = () => {
       audience: "Leaders",
       problem: "Drowning in AI noise",
       quote: "I know AI will change everything, but I don't know where to start or who to trust",
-      pain: "Paralyzed by complexity, wasting resources on pilots that never scale",
+      pain: "Paralyzed by hype, burning resources on tools that aren't adopted evenly",
       icon: Users,
     },
     {
       audience: "Founders", 
       problem: "Existential competition fear",
       quote: "Every competitor seems to be 'AI-powered' - am I already too late?",
-      pain: "Burning cash on shiny AI tools while core business fundamentals suffer",
+      pain: "Burning cash on shiny AI tools while focused scaling suffers",
       icon: AlertTriangle,
     },
     {
