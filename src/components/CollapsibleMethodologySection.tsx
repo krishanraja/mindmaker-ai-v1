@@ -84,7 +84,7 @@ const CollapsibleMethodologySection = () => {
                     <span className="text-foreground">Our</span> <span className="text-primary">4-Phase Methodology</span>
                   </h2>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    From AI-Confused to AI-Confident • All skill levels welcome
+                    Methods for all personalities and skill levels
                   </p>
                 </div>
                 <div className="flex items-center gap-2 text-sm font-medium text-primary">
