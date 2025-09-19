@@ -1,6 +1,7 @@
 import { AlertTriangle, Clock, DollarSign, Users } from "lucide-react";
 import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 import LiveStatsPopup from "@/components/LiveStatsPopup";
+import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 import { useState, useEffect } from "react";
 
 const ProblemSection = () => {
@@ -53,9 +54,12 @@ const ProblemSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <ResponsiveCardGrid 
+          desktopGridClass="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          className="mb-16"
+        >
           {audienceProblems.map((item, index) => (
-            <div key={index} className="card p-8 fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
+            <div key={index} className="card p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-destructive text-white rounded-xl mb-6">
                 <item.icon className="h-8 w-8" />
               </div>
@@ -77,7 +81,7 @@ const ProblemSection = () => {
               </p>
             </div>
           ))}
-        </div>
+        </ResponsiveCardGrid>
 
         {/* Quote Section */}
         <div className="card p-8 max-w-4xl mx-auto text-center fade-in-up">
