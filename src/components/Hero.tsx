@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import mindmakerLogo from "@/assets/mindmaker-logo.png";
 import InteractiveTimeline from "./InteractiveTimeline";
+import { useFontLoader } from "@/hooks/useFontLoader";
 
 const Hero = () => {
+  const { isLoaded: goboldLoaded, isLoading: goboldLoading } = useFontLoader('Gobold');
+  
   return (
     <section className="min-h-[100dvh] flex items-center justify-center relative overflow-hidden">
       {/* Background Layer 1: Mindmaker Animation */}
@@ -31,7 +34,7 @@ const Hero = () => {
           </div>
           
           {/* Main Tagline - Mobile-First Typography */}
-          <h1 className="font-gobold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[0.1em] sm:tracking-[0.15em] mb-4 md:mb-6 leading-[1.1] sm:leading-tight max-w-5xl mx-auto text-white uppercase hero-text-shimmer">
+          <h1 className={`${goboldLoaded ? 'font-gobold' : 'font-black'} text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[0.1em] sm:tracking-[0.15em] mb-4 md:mb-6 leading-[1.1] sm:leading-tight max-w-5xl mx-auto text-white uppercase hero-text-shimmer transition-[font-family] duration-200 ${goboldLoading ? 'animate-pulse' : ''}`}>
             ai literacy
           </h1>
           

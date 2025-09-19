@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @font-face {
   font-family: 'Gobold';
   src: url('/fonts/Gobold_Bold.otf') format('opentype');
   font-weight: bold;
   font-display: swap;
+  font-size-adjust: 0.9;
 }
 
 @layer base, components, utilities;
