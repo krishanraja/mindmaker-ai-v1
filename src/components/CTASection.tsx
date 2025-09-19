@@ -19,7 +19,7 @@ const CTASection = () => {
       <div className="container-width relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8">
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white/90 px-6 py-3 rounded-full text-sm font-medium mb-6 gap-3 border border-white/20">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white/90 px-6 py-3 rounded-full text-sm font-medium mb-6 gap-3 border border-white/20 text-left">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse shadow-lg shadow-amber-500/50"></div>
                 <span className="font-semibold">Limited Availability</span>
