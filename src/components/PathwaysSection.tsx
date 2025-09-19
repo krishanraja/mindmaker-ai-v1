@@ -182,7 +182,7 @@ const PathwaysSection = () => {
     const isExpanded = expandedModules[module.id];
     const hasLevel3 = !isCoreModule && level3Modules[module.id as keyof typeof level3Modules];
     
-    // For specialized modules with Level 3 content, just return the card (Collapsible is handled in parent)
+    // For specialized modules with Level 3 content, return card without onClick (Collapsible handles it)
     if (!isCoreModule && hasLevel3) {
       return (
         <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl opacity-75 cursor-pointer`}>
@@ -190,8 +190,8 @@ const PathwaysSection = () => {
           <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
             {/* Badge */}
             <div className="flex justify-end mb-3 sm:mb-4">
-              <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
-                Unlock Later
+              <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
+                {isExpanded ? 'Expanded' : 'Click to Expand'}
               </span>
             </div>
             
@@ -223,16 +223,10 @@ const PathwaysSection = () => {
               {module.description}
             </p>
             
-            {/* Button Section - Bottom Aligned */}
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
-              onClick={() => toggleModule(module.id)}
-            >
-              {isExpanded ? 'Collapse' : 'Unlock'}
-              <ArrowRight className={`ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-            </Button>
+            {/* Visual indicator - no button needed, entire card is clickable */}
+            <div className="mt-auto flex items-center justify-center">
+              <ArrowRight className={`h-4 w-4 text-accent transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+            </div>
           </div>
         </div>
       );
@@ -350,7 +344,7 @@ const PathwaysSection = () => {
           
           {/* Specialized Modules - Progressive Disclosure */}
           {showSpecializedModules && (
-            <div className="space-y-4 sm:space-y-6 max-w-7xl mx-auto animate-fade-in">
+            <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
               {specializedModules.map((module) => {
                 const hasLevel3 = level3Modules[module.id as keyof typeof level3Modules];
                 const isExpanded = expandedModules[module.id];
@@ -358,17 +352,19 @@ const PathwaysSection = () => {
                 if (hasLevel3) {
                   return (
                     <Collapsible key={module.id} open={isExpanded} onOpenChange={() => toggleModule(module.id)}>
-                      <CollapsibleTrigger asChild>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 cursor-pointer">
-                          {renderModule(module, false)}
-                        </div>
-                      </CollapsibleTrigger>
-                      
-                      <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                        <div className="mt-4 max-w-7xl mx-auto">
-                          {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
-                        </div>
-                      </CollapsibleContent>
+                      <div>
+                        <CollapsibleTrigger asChild>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 cursor-pointer">
+                            {renderModule(module, false)}
+                          </div>
+                        </CollapsibleTrigger>
+                        
+                        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+                          <div className="w-full">
+                            {renderLevel3Module(level3Modules[module.id as keyof typeof level3Modules])}
+                          </div>
+                        </CollapsibleContent>
+                      </div>
                     </Collapsible>
                   );
                 }
