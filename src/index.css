@@ -214,6 +214,22 @@ body {
   .bg-brand-gradient {
     background-image: var(--brand-gradient) !important;
   }
+
+  /* Number update animation for stats */
+  .number-update {
+    animation: subtle-glow 0.5s ease-out;
+  }
+
+  @keyframes subtle-glow {
+    0%, 100% { 
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% { 
+      transform: scale(1.02);
+      filter: brightness(1.1);
+    }
+  }
 }
 
 

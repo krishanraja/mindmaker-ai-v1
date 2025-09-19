@@ -19,13 +19,13 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
     }
   }, [counterData, isVisible]);
 
-  // Auto dismiss after 20 seconds (increased for better UX)
+  // Auto dismiss after 30 seconds for better observation of changes
   React.useEffect(() => {
     if (!isVisible) return;
 
     const autoDismiss = setTimeout(() => {
       onClose();
-    }, 20000);
+    }, 30000);
 
     return () => {
       clearTimeout(autoDismiss);
@@ -85,10 +85,10 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className={`text-sm sm:text-lg font-bold ${stat.color} transition-all duration-300 animate-pulse truncate`}>
+                    <span className={`text-sm sm:text-lg font-bold ${stat.color} transition-all duration-500 truncate number-update`}>
                       {formatNumber(stat.value)}{stat.suffix || ''}
                     </span>
-                    <TrendingUp className="h-3 w-3 text-destructive animate-pulse opacity-60 flex-shrink-0" />
+                    <TrendingUp className="h-3 w-3 text-destructive opacity-60 flex-shrink-0" />
                   </div>
                   <p className="text-xs text-muted-foreground leading-tight truncate">
                     {stat.label}
@@ -103,7 +103,7 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
         <div className="border-t border-border/30 pt-3 space-y-2">
           {marketSentiment.newsContext && marketSentiment.newsContext !== 'Standard market conditions' && (
             <div className="flex items-start gap-2">
-              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 animate-pulse"></div>
+              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5"></div>
               <div className="text-xs text-muted-foreground">
                 <span className="font-medium text-foreground">AI Impact:</span> {marketSentiment.newsContext}
               </div>

@@ -106,8 +106,8 @@ export const useRealisticCounters = ({ isVisible }: UseRealisticCountersOptions)
     const hour = currentTime.getHours();
     const isWeekend = currentTime.getDay() === 0 || currentTime.getDay() === 6;
     
-    // Determine base increment (smaller for more frequent updates)
-    let baseIncrement = 40;
+    // Determine base increment (larger for visual impact)
+    let baseIncrement = 120;
     
     if (hour >= 9 && hour <= 11 || hour >= 14 && hour <= 16 || hour >= 19 && hour <= 21) {
       // Peak hours
@@ -151,8 +151,8 @@ export const useRealisticCounters = ({ isVisible }: UseRealisticCountersOptions)
     const hour = currentTime.getHours();
     const isWeekend = currentTime.getDay() === 0 || currentTime.getDay() === 6;
     
-    // Base increment - smaller for more frequent updates
-    let baseIncrement = 15;
+    // Base increment - larger for visual impact
+    let baseIncrement = 50;
     
     // Peak anxiety times
     if (hour >= 9 && hour <= 17) {
@@ -223,16 +223,16 @@ export const useRealisticCounters = ({ isVisible }: UseRealisticCountersOptions)
     saveState(counters);
   }, [counters, saveState]);
 
-  // Set up timers with faster, more responsive intervals
+  // Set up timers with consistent 1-2 second intervals for visual impact
   const timerConfigs = [
     {
       key: 'aiTrainingSearches',
-      updateInterval: getTimeBasedInterval(3000), // 3 seconds base, 0.45-4.5s range
+      updateInterval: 1500, // Fixed 1.5 seconds for consistent visual updates
       callback: updateAiTrainingSearches
     },
     {
       key: 'aiReplaceSearches',
-      updateInterval: getTimeBasedInterval(2000), // 2 seconds base, 0.3-3s range
+      updateInterval: 2000, // Fixed 2 seconds for consistent visual updates
       callback: updateAiReplaceSearches
     },
     {
