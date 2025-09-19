@@ -85,8 +85,8 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-fade-in">
-      <div className="glass-card p-6 w-80 border border-border/50 shadow-2xl">
+    <div className="fixed bottom-4 right-4 left-4 sm:left-auto sm:bottom-6 sm:right-6 z-50 animate-fade-in">
+      <div className="glass-card p-4 sm:p-6 w-full max-w-sm sm:max-w-80 border border-border/50 shadow-2xl mx-auto">
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div>
@@ -133,16 +133,6 @@ const LiveStatsPopup: React.FC<LiveStatsPopupProps> = ({ isVisible, onClose }) =
               </div>
             );
           })}
-        </div>
-
-        {/* Footer Message */}
-        <div className="bg-gradient-primary/10 rounded-lg p-3 text-center">
-          <p className="text-xs text-foreground font-medium mb-1">
-            This is why MindMaker exists
-          </p>
-          <p className="text-xs text-muted-foreground">
-            Bridging the gap between AI hype and human empowerment
-          </p>
         </div>
       </div>
     </div>
