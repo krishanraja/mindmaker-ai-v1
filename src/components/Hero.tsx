@@ -19,9 +19,9 @@ const Hero = () => {
       
       {/* Content Layer */} 
       <div className="container-width relative z-10 text-center">
-        <div className="max-w-6xl mx-auto fade-in-up pt-safe-top pb-12 md:pb-20 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto fade-in-up pb-12 md:pb-20 px-4 sm:px-6">
           {/* Logo - Mobile Optimized with Safe Area */}
-          <div className="mb-8 md:mb-10 mt-20 md:mt-12 pt-safe-area-top">
+          <div className="mb-8 md:mb-10 mt-16 md:mt-12 pt-safe-area-top">
             <img 
               src={mindmakerLogo} 
               alt="MindMaker" 
