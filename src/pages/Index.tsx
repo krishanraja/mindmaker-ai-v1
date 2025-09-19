@@ -4,6 +4,7 @@ import ProblemSection from "@/components/ProblemSection";
 import DifferenceSection from "@/components/DifferenceSection";
 import TrustSection from "@/components/TrustSection";
 import CollapsibleMethodologySection from "@/components/CollapsibleMethodologySection";
+import StatsSection from "@/components/StatsSection";
 import PathwaysSection from "@/components/PathwaysSection";
 import AudienceOutcomesSection from "@/components/AudienceOutcomesSection";
 import ContentHubSection from "@/components/ContentHubSection";
@@ -42,6 +43,10 @@ const Index = () => {
 
       <section aria-label="Learning Methodology">
         <CollapsibleMethodologySection />
+      </section>
+
+      <section aria-label="Founder Credentials">
+        <StatsSection />
       </section>
 
       <section aria-label="Call to Action">

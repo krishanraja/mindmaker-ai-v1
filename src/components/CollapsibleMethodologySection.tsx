@@ -81,10 +81,10 @@ const CollapsibleMethodologySection = () => {
               >
                 <div className="text-center">
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-2">
-                    Our <span className="text-primary">4-Phase Methodology</span>
+                    <span className="text-foreground">Our</span> <span className="text-primary">4-Phase Methodology</span>
                   </h2>
                   <p className="text-sm sm:text-base text-muted-foreground">
-                    From AI-Confused to AI-Confident
+                    From AI-Confused to AI-Confident • All skill levels welcome
                   </p>
                 </div>
                 <div className="flex items-center gap-2 text-sm font-medium text-primary">
@@ -99,8 +99,8 @@ const CollapsibleMethodologySection = () => {
             <div className="pt-8">
               <div className="text-center mb-12 fade-in-up">
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto mb-3 sm:mb-4">
-                  Our proven cognitive learning methodology transforms teams through structured literacy development. 
-                  Each phase builds deep understanding while cultivating practical AI reasoning capabilities.
+                  Our proven cognitive learning methodology transforms individuals and teams through structured literacy development, starting wherever you are. 
+                  Each phase builds deep understanding while cultivating practical AI reasoning capabilities, tailored to your current level.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-medium text-muted-foreground">
                   <span className="text-primary font-semibold">ASSESS</span>
