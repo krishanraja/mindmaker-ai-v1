@@ -28,7 +28,7 @@ const TrustSection = () => {
             The World's First AI Literacy Accelerator
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Trusted by enterprises, telcos, media organizations and scale-ups worldwide
+            Trusted by enterprises, telcos, media organizations and scale-ups worldwide.
           </p>
         </div>
         

@@ -37,9 +37,6 @@ const StatsSection = () => {
               You
             </span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto">
-            AI literacy is essential to become an AI orchestrator or AI leader. We're here to help you.
-          </p>
         </div>
         
         <ResponsiveCardGrid 
