@@ -251,44 +251,43 @@ const InteractiveTimeline = () => {
       </div>
 
       {/* Fixed-Height Content Container */}
-      <div 
-        className="relative h-96 sm:h-80 overflow-hidden"
-        onClick={handleContentClick}
-        role="button"
-        tabIndex={0}
-        aria-label="Tap to advance to next milestone"
-      >
+      <div className="relative h-[480px] sm:h-[420px] overflow-hidden">
         <div 
-          className="glass-card-dark mobile-padding h-full cursor-pointer transition-all duration-700 ease-out transform hover:scale-[1.02]"
+          className="glass-card-dark h-full transition-all duration-700 ease-out transform hover:scale-[1.02] cursor-pointer"
           style={getGradientStyle(currentItem.gradientStep)}
+          onClick={handleContentClick}
+          role="button"
+          tabIndex={0}
+          aria-label="Tap to advance to next milestone"
         >
-          <div className="flex flex-col justify-center h-full text-center space-y-4 sm:space-y-6">
-            {/* Icon and Year */}
-            <div className="space-y-3 sm:space-y-4">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-700">
-                <currentItem.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+          <div className="h-full flex flex-col justify-between p-6 sm:p-8">
+            {/* Top Section - Icon and Year */}
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 transition-all duration-700">
+                <currentItem.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
               </div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-white transition-all duration-700">
+              
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white transition-all duration-700">
                 {currentItem.year}
               </div>
             </div>
 
-            {/* Title and Description */}
-            <div className="space-y-2 sm:space-y-3 max-w-2xl mx-auto">
-              <h3 className="mobile-text-lg font-bold text-white leading-tight transition-all duration-700">
+            {/* Middle Section - Title and Description */}
+            <div className="flex-1 flex flex-col justify-center text-center space-y-4 max-w-3xl mx-auto">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight transition-all duration-700">
                 {currentItem.title}
               </h3>
-              <p className="text-white/80 mobile-text-sm leading-relaxed transition-all duration-700">
+              <p className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed transition-all duration-700">
                 {currentItem.description}
               </p>
             </div>
 
-            {/* Impact Section */}
-            <div className="bg-gradient-to-r from-white/5 to-white/10 rounded-xl p-3 sm:p-4 border border-white/10 max-w-2xl mx-auto transition-all duration-700">
-              <h4 className="text-white/90 font-semibold mb-1 sm:mb-2 text-xs sm:text-sm">
+            {/* Bottom Section - Impact */}
+            <div className="bg-gradient-to-r from-white/10 to-white/5 rounded-xl p-4 sm:p-6 border border-white/10 transition-all duration-700">
+              <h4 className="text-white/90 font-semibold mb-3 text-sm sm:text-base text-center">
                 {currentItem.impact}
               </h4>
-              <p className="text-white mobile-text-sm font-medium leading-relaxed">
+              <p className="text-white text-base sm:text-lg md:text-xl font-medium leading-relaxed text-center">
                 {currentItem.meaning}
               </p>
             </div>
