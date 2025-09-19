@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Megaphone, Target, Cog, Search, Hammer, UserCheck, GamepadIcon, Workflow, Telescope, Users2, PenTool } from "lucide-react";
+import { ArrowRight, Users, Megaphone, Target, Cog, Search, Hammer, UserCheck, GamepadIcon, Workflow, Telescope, Users2, PenTool, RotateCcw } from "lucide-react";
 import { useState } from "react";
 
 const PathwaysSection = () => {
-  const [expandedLevel3, setExpandedLevel3] = useState<string | null>(null);
   const [showSpecializedModules, setShowSpecializedModules] = useState(false);
+  const [showLevel3Modules, setShowLevel3Modules] = useState(false);
 
   const coreModules = [
     {
@@ -84,9 +84,9 @@ const PathwaysSection = () => {
     }
   ];
 
-  // Level 3 modules - Advanced specialized content
-  const level3Modules = {
-    "formalize-ops": {
+  // Level 3 modules array - Advanced specialized content
+  const level3ModulesArray = [
+    {
       id: "workflow-redesign-mastery",
       title: "WORKFLOW REDESIGN MASTERY",
       credits: 25,
@@ -94,7 +94,7 @@ const PathwaysSection = () => {
       icon: Workflow,
       track: "IMPLEMENTATION"
     },
-    "get-building": {
+    {
       id: "competitive-intelligence-bootcamp", 
       title: "COMPETITIVE INTELLIGENCE BOOTCAMP",
       credits: 30,
@@ -102,7 +102,7 @@ const PathwaysSection = () => {
       icon: Telescope,
       track: "IMPLEMENTATION"
     },
-    "coach-the-coaches": {
+    {
       id: "internal-champion-development",
       title: "INTERNAL CHAMPION DEVELOPMENT", 
       credits: 35,
@@ -110,7 +110,7 @@ const PathwaysSection = () => {
       icon: Users2,
       track: "LEADERSHIP"
     },
-    "gamify-learning": {
+    {
       id: "ai-powered-content-strategy",
       title: "AI-POWERED CONTENT STRATEGY",
       credits: 20, 
@@ -118,80 +118,19 @@ const PathwaysSection = () => {
       icon: PenTool,
       track: "IMPLEMENTATION"
     }
+  ];
+
+  const resetToCore = () => {
+    setShowSpecializedModules(false);
+    setShowLevel3Modules(false);
   };
 
-  const toggleLevel3 = (moduleId: string) => {
-    console.log('toggleLevel3 called with:', moduleId);
-    console.log('current expandedLevel3:', expandedLevel3);
-    const newValue = expandedLevel3 === moduleId ? null : moduleId;
-    console.log('setting expandedLevel3 to:', newValue);
-    setExpandedLevel3(newValue);
-  };
-
-  const renderLevel3Module = (level3Module: any) => {
-    const IconComponent = level3Module.icon;
-    const isLeadership = level3Module.track === "LEADERSHIP";
-    
-    return (
-      <div className="glass-card p-4 sm:p-6 rounded-xl border-l-4 border-primary/20 max-w-4xl mx-auto">
-        <div className="flex items-center justify-between w-full mb-3 sm:mb-4">
-          <div className={`w-8 sm:w-10 h-8 sm:h-10 ${isLeadership ? 'bg-primary/10' : 'bg-accent/10'} rounded-lg flex items-center justify-center flex-shrink-0`}>
-            <IconComponent className={`w-4 sm:w-5 h-4 sm:h-5 ${isLeadership ? 'text-primary' : 'text-accent'}`} />
-          </div>
-          <div className="flex flex-col items-end gap-1">
-            <span className={`text-xs ${isLeadership ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'} px-2 py-1 rounded-full font-medium`}>
-              {level3Module.track}
-            </span>
-            <span className={`text-sm sm:text-base font-bold ${isLeadership ? 'text-primary' : 'text-accent'}`}>
-              {level3Module.credits}
-            </span>
-            <span className="text-xs text-muted-foreground">credits</span>
-          </div>
-        </div>
-        
-        <h4 className={`text-xs sm:text-sm font-bold uppercase tracking-wide ${isLeadership ? 'text-primary' : 'text-accent'} mb-2 sm:mb-3`}>
-          {level3Module.title}
-        </h4>
-        
-        <p className="text-xs sm:text-sm font-normal leading-relaxed text-muted-foreground mb-4 sm:mb-6">
-          {level3Module.description}
-        </p>
-        
-        <Button 
-          asChild
-          variant="outline" 
-          size="sm" 
-          className="group w-full min-h-[36px] sm:min-h-[40px] text-xs sm:text-sm"
-        >
-          <a 
-            href="https://calendly.com/krish-raja/mindmaker-advanced-module"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book Advanced Session
-            <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </Button>
-      </div>
-    );
-  };
-
-  const renderModule = (module: any, isCoreModule: boolean = false) => {
+  const renderModule = (module: any, isCoreModule: boolean = false, isLevel3: boolean = false) => {
     const IconComponent = module.icon;
     const isLeadership = module.track === "LEADERSHIP";
-    const hasLevel3 = !isCoreModule && level3Modules[module.id as keyof typeof level3Modules];
-    
-    const handleClick = () => {
-      if (hasLevel3) {
-        toggleLevel3(module.id);
-      }
-    };
     
     return (
-      <div 
-        className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule ? 'opacity-75' : ''} ${hasLevel3 ? 'cursor-pointer' : ''}`}
-        onClick={hasLevel3 ? handleClick : undefined}
-      >
+      <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule && !isLevel3 ? 'opacity-75' : ''}`}>
         {/* Header Section - Fixed Height */}
         <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
           {/* Badge */}
@@ -200,13 +139,13 @@ const PathwaysSection = () => {
               <span className="bg-primary text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                 Start Here
               </span>
-            ) : hasLevel3 ? (
+            ) : isLevel3 ? (
               <span className="bg-accent/10 text-accent px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
-                {expandedLevel3 === module.id ? 'Expanded' : 'Click to Expand'}
+                Expert Level
               </span>
             ) : (
               <span className="bg-muted text-muted-foreground px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
-                Unlock Later
+                Advanced
               </span>
             )}
           </div>
@@ -262,19 +201,25 @@ const PathwaysSection = () => {
                 <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-          ) : hasLevel3 ? (
-            <div className="mt-auto flex items-center justify-center">
-              <ArrowRight className={`h-4 w-4 text-accent transition-transform ${expandedLevel3 === module.id ? 'rotate-90' : ''}`} />
-            </div>
+          ) : isLevel3 ? (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
+              onClick={resetToCore}
+            >
+              <RotateCcw className="mr-2 h-3 w-3" />
+              Back to Core
+            </Button>
           ) : (
             <Button 
               variant="outline" 
               size="sm" 
               className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
-              onClick={() => setShowSpecializedModules(true)}
+              onClick={resetToCore}
             >
-              Unlock Advanced
-              <ArrowRight className="ml-2 h-3 w-3 group-hover:translate-x-1 transition-transform" />
+              <RotateCcw className="mr-2 h-3 w-3" />
+              Back to Core
             </Button>
           )}
         </div>
@@ -313,27 +258,30 @@ const PathwaysSection = () => {
             <div className="max-w-7xl mx-auto animate-fade-in">
               {/* Level 2 Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-                {specializedModules.map((module) => renderModule(module, false))}
+                {specializedModules.map((module) => renderModule(module, false, false))}
               </div>
               
-              {/* Level 3 Content - Appears below grid when expanded */}
-              {(() => {
-                console.log('Level 3 render check:');
-                console.log('- expandedLevel3:', expandedLevel3);
-                console.log('- has level3Module:', expandedLevel3 ? !!level3Modules[expandedLevel3 as keyof typeof level3Modules] : false);
-                console.log('- level3Modules keys:', Object.keys(level3Modules));
-                
-                if (expandedLevel3 && level3Modules[expandedLevel3 as keyof typeof level3Modules]) {
-                  console.log('Rendering Level 3 module for:', expandedLevel3);
-                  return (
-                    <div className="animate-fade-in mt-6">
-                      {renderLevel3Module(level3Modules[expandedLevel3 as keyof typeof level3Modules])}
-                    </div>
-                  );
-                }
-                console.log('Not rendering Level 3 content');
-                return null;
-              })()}
+              {/* Show/Hide Level 3 Modules Button */}
+              <div className="text-center mb-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setShowLevel3Modules(!showLevel3Modules)}
+                  className="group min-h-[48px] px-8"
+                >
+                  {showLevel3Modules ? 'Hide Expert Modules' : 'Unlock Expert Modules'}
+                  <ArrowRight className={`ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform ${showLevel3Modules ? 'rotate-90' : ''}`} />
+                </Button>
+              </div>
+              
+              {/* Level 3 Grid */}
+              {showLevel3Modules && (
+                <div className="max-w-7xl mx-auto animate-fade-in">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    {level3ModulesArray.map((module) => renderModule(module, false, true))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
