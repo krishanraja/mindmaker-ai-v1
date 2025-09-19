@@ -9,10 +9,10 @@ const AudienceOutcomesSection = () => {
       outcome: "Run & Future Proof",
       description: "Transform from AI-anxious to AI-confident. Make strategic decisions with clarity and conviction.",
       benefits: [
-        "Strategic AI roadmap aligned with business goals",
-        "Confident decision-making framework", 
-        "Risk mitigation strategies that actually work",
-        "Team alignment on AI priorities"
+        "Strategic AI roadmap for business",
+        "Confident decision framework", 
+        "Effective risk mitigation strategies",
+        "Team AI priority alignment"
       ],
       icon: mindmakerIconLight,
       cta: "Executive Assessment"
@@ -22,10 +22,10 @@ const AudienceOutcomesSection = () => {
       outcome: "Reclaim Purpose", 
       description: "Stop chasing AI shiny objects. Focus on what matters: sustainable competitive advantage.",
       benefits: [
-        "Clear product-market fit with AI integration",
-        "Competitive differentiation strategy",
-        "Resource allocation that drives ROI",
-        "Investor-ready AI narrative"
+        "AI-integrated product-market fit",
+        "Competitive differentiation plan",
+        "ROI-driven resource allocation",
+        "Strong investor AI narrative"
       ],
       icon: mindmakerIconLight,
       cta: "High Growth Sprint"
@@ -35,10 +35,10 @@ const AudienceOutcomesSection = () => {
       outcome: "10x Your Value",
       description: "Turn AI anxiety into career acceleration.<br />Become the talent companies fight to keep.",
       benefits: [
-        "Future-proof skill development plan",
-        "AI-augmented productivity mastery",
-        "Career positioning in AI-first economy", 
-        "Confidence to lead AI initiatives"
+        "Future-proof skill development",
+        "AI productivity mastery",
+        "AI-first economy positioning", 
+        "AI leadership confidence"
       ],
       icon: mindmakerIconLight,
       cta: "Team Program"
