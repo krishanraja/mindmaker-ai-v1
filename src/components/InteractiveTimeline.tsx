@@ -232,6 +232,45 @@ const InteractiveTimeline = () => {
 
   const dotPositions = getProportionalPositions();
 
+  // Calculate Y position on wavy path for each dot
+  const getWavyYPosition = (xPercent: number) => {
+    // Convert percentage to SVG coordinates (0-800)
+    const x = (xPercent / 100) * 800;
+    
+    // Wavy path: M0,32 Q100,20 200,32 T400,32 Q500,44 600,32 T800,32
+    // Approximate the curve with segments
+    if (x <= 200) {
+      // First curve: 0,32 -> 100,20 -> 200,32
+      if (x <= 100) {
+        // Quadratic curve from (0,32) to (100,20)
+        const t = x / 100;
+        return 32 + (20 - 32) * (2 * t - t * t);
+      } else {
+        // Quadratic curve from (100,20) to (200,32)
+        const t = (x - 100) / 100;
+        return 20 + (32 - 20) * (2 * t - t * t);
+      }
+    } else if (x <= 400) {
+      // Smooth continuation to (400,32)
+      const t = (x - 200) / 200;
+      return 32; // Relatively flat section
+    } else if (x <= 600) {
+      // Curve down then up: 400,32 -> 500,44 -> 600,32
+      if (x <= 500) {
+        // Curve down to (500,44)
+        const t = (x - 400) / 100;
+        return 32 + (44 - 32) * (2 * t - t * t);
+      } else {
+        // Curve back up to (600,32)
+        const t = (x - 500) / 100;
+        return 44 + (32 - 44) * (2 * t - t * t);
+      }
+    } else {
+      // Final section to (800,32)
+      return 32;
+    }
+  };
+
   return (
     <div 
       ref={containerRef}
@@ -289,22 +328,26 @@ const InteractiveTimeline = () => {
           </svg>
           
           {/* Journey waypoint dots */}
-          <div className="absolute inset-0 flex items-center">
-            {timelineData.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className="absolute transition-all duration-500 transform -translate-x-1/2 p-3 -m-3"
-                style={{ 
-                  left: `${dotPositions[index]}%`,
-                  transform: `translateX(-50%) scale(${
-                    index === activeItem ? 1.4 : index < activeItem ? 1.1 : 0.9
-                  })`,
-                  minWidth: '44px',
-                  minHeight: '44px',
-                }}
-                aria-label={`Go to ${item.year}: ${item.title}`}
-              >
+          <div className="absolute inset-0">
+            {timelineData.map((item, index) => {
+              const xPos = dotPositions[index];
+              const yPos = getWavyYPosition(xPos);
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className="absolute transition-all duration-500 transform -translate-x-1/2 -translate-y-1/2 p-3 -m-3"
+                  style={{ 
+                    left: `${xPos}%`,
+                    top: `${(yPos / 64) * 100}%`, // Convert SVG Y to percentage of container height
+                    transform: `translate(-50%, -50%) scale(${
+                      index === activeItem ? 1.4 : index < activeItem ? 1.1 : 0.9
+                    })`,
+                    minWidth: '44px',
+                    minHeight: '44px',
+                  }}
+                  aria-label={`Go to ${item.year}: ${item.title}`}
+                >
                 <div className={`relative w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-500 ${
                   index === activeItem 
                     ? 'bg-white shadow-lg shadow-white/40 ring-2 ring-white/30' 
@@ -317,15 +360,16 @@ const InteractiveTimeline = () => {
                     <div className="absolute inset-0 rounded-full bg-white/30 animate-ping" />
                   )}
                   
-                  {/* Year label on hover/active */}
-                  <div className={`absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-bold text-white/80 transition-opacity duration-300 ${
-                    index === activeItem ? 'opacity-100' : 'opacity-0 hover:opacity-70'
-                  }`}>
-                    {item.year}
+                    {/* Year label on hover/active */}
+                    <div className={`absolute -top-8 left-1/2 transform -translate-x-1/2 text-xs font-bold text-white/80 transition-opacity duration-300 ${
+                      index === activeItem ? 'opacity-100' : 'opacity-0 hover:opacity-70'
+                    }`}>
+                      {item.year}
+                    </div>
                   </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
