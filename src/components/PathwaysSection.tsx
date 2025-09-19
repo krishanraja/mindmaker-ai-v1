@@ -123,6 +123,11 @@ const PathwaysSection = () => {
   const resetToCore = () => {
     setShowSpecializedModules(false);
     setShowLevel3Modules(false);
+    // Scroll to top of the section
+    document.querySelector('[data-section="pathways"]')?.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start' 
+    });
   };
 
   const renderModule = (module: any, isCoreModule: boolean = false, isLevel3: boolean = false) => {
@@ -205,7 +210,7 @@ const PathwaysSection = () => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
+              className="w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
               onClick={resetToCore}
             >
               <RotateCcw className="mr-2 h-3 w-3" />
@@ -215,7 +220,7 @@ const PathwaysSection = () => {
             <Button 
               variant="outline" 
               size="sm" 
-              className="group w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
+              className="w-full mt-auto min-h-[40px] sm:min-h-[44px] text-xs sm:text-sm"
               onClick={resetToCore}
             >
               <RotateCcw className="mr-2 h-3 w-3" />
@@ -228,7 +233,7 @@ const PathwaysSection = () => {
   };
 
   return (
-    <section className="section-padding bg-secondary/20">
+    <section className="section-padding bg-secondary/20" data-section="pathways">
       <div className="container-width">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">AI Literacy-to-Strategy Sprints</h2>
