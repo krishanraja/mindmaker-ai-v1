@@ -40,7 +40,7 @@ const Hero = () => {
           
           {/* Supporting Tagline - Mobile Optimized */}
           <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-medium tracking-wide mb-8 md:mb-12 leading-relaxed max-w-4xl mx-auto text-white/95">
-            Interactive & fun learning - Everyone's future foundation.
+            Everyone's future foundation.
           </p>
           
           {/* CTA Buttons - Mobile-First Design */}
