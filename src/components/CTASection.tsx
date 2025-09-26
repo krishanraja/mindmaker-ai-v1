@@ -64,7 +64,7 @@ const CTASection = () => {
               className="w-full group"
             >
               <ArrowUp className="mr-2 h-4 w-4 group-hover:-translate-y-1 transition-transform duration-200" />
-              Or Choose a Pathway Above
+              Or Choose an Interactive Pathway Above
             </Button>
           </div>
           
@@ -84,7 +84,7 @@ const CTASection = () => {
               </div>
             </div>
             <p className="text-base text-white/80">
-              Proven track record in strategic AI implementation and revenue growth
+              Credit-based, modular approach proven to accelerate AI literacy and drive revenue growth
             </p>
           </div>
         </div>

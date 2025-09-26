@@ -7,7 +7,7 @@ const AudienceOutcomesSection = () => {
     {
       audience: "Enterprise Leaders",
       outcome: "Run & Future Proof",
-      description: "Transform from AI-anxious to AI-confident. Make strategic decisions with clarity and conviction.",
+      description: "Transform from AI-anxious to AI-confident. Make strategic decisions with AI as your thinking partner, not just another tool.",
       benefits: [
         "Strategic AI roadmap for business",
         "Confident decision framework", 
@@ -20,7 +20,7 @@ const AudienceOutcomesSection = () => {
     {
       audience: "High Growth SMB",
       outcome: "Reclaim Purpose", 
-      description: "Stop chasing AI shiny objects. Focus on what matters: sustainable competitive advantage.",
+      description: "Stop chasing AI shiny objects. Transform AI literacy into a revenue catalyst for sustainable competitive advantage.",
       benefits: [
         "AI-integrated product-market fit",
         "Competitive differentiation plan",
@@ -33,7 +33,7 @@ const AudienceOutcomesSection = () => {
     {
       audience: "Teams", 
       outcome: "10x Your Value",
-      description: "Turn AI anxiety into career acceleration.<br />Become the talent companies fight to keep.",
+      description: "Turn AI anxiety into career acceleration.<br />Master AI as your thinking partner and become indispensable talent.",
       benefits: [
         "Future-proof skill development",
         "AI productivity mastery",
@@ -55,7 +55,7 @@ const AudienceOutcomesSection = () => {
             </span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground mx-auto px-4">
-            AI literacy - essential to be an AI orchestrator or leader. We're here to help you.
+            Interactive, gamified learning designed to transform AI from overwhelming threat to strategic thinking partner. Choose your pathway.
           </p>
         </div>
         

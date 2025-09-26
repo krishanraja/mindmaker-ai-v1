@@ -5,8 +5,8 @@ const DifferenceSection = () => {
   const differences = [
     {
       number: "01",
-      title: "Education in Data & Tech",
-      description: "improving data & tech literacy in startups and enterprise",
+      title: "Multidisciplinary Foundation",
+      description: "Grounded in education, data, and technology expertise - bridging business strategy with practical AI implementation",
       icon: Briefcase,
     },
     {
@@ -17,8 +17,8 @@ const DifferenceSection = () => {
     },
     {
       number: "03",
-      title: "Modular Credit System",
-      description: "Pay only for what you need. Flexible 5-25 credit modules tailored to your specific challenges",
+      title: "Gamified Credit System",
+      description: "Interactive, modular learning with 5-45 credit flexibility. Earn progress through engaging challenges, not boring lectures",
       icon: CheckCircle,
     },
     {
@@ -41,11 +41,11 @@ const DifferenceSection = () => {
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
             <span className="text-primary">
-              Practical Data & Tech Expertise
+              Interactive & Engaging Approach
             </span>
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
-            AI literacy isn't just prompting. Shifting your mental model is step 1 to becoming a 10X orchestrator that uses AI for work, not just casual ideas. We bridge that gap.
+            Move beyond boring workshops and theoretical frameworks. Our gamified, interactive methodology transforms AI literacy into engaging experiences with measurable business outcomes.
           </p>
         </div>
         
