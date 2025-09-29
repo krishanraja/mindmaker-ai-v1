@@ -236,7 +236,7 @@ const PathwaysSection = () => {
     <section className="section-padding bg-secondary/20" data-section="pathways">
       <div className="container-width">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">AI Literacy-to-Strategy Sprints</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">Modules You Can Combine</h2>
         </div>
 
         {/* Core Modules - Always Visible */}

@@ -13,7 +13,7 @@ const ContentHubSection = () => {
               Free Thought Leadership
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-6 text-foreground">
-              Start Your AI Journey with Our 
+              Start Your Journey with Our 
               <span className="text-primary"> Content Hub</span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">

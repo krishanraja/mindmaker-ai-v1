@@ -86,8 +86,8 @@ const ProblemSection = () => {
         {/* Quote Section */}
         <div className="card p-8 max-w-4xl mx-auto text-center fade-in-up">
           <blockquote className="text-base md:text-lg leading-relaxed italic text-muted-foreground mb-6">
-            "The gap between AI hype and practical implementation is costing enterprises millions. 
-            Without proper literacy and strategic direction, even the best AI tools become expensive experiments."
+            "The gap between GenAI hype and practical implementation is costing enterprises millions. 
+            Without proper literacy and strategic direction, even the best tools become expensive experiments."
           </blockquote>
           
           <div className="text-center">
