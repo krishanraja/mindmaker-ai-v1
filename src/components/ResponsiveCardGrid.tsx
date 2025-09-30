@@ -13,14 +13,12 @@ interface ResponsiveCardGridProps {
   children: ReactNode[];
   desktopGridClass: string;
   className?: string;
-  mobileCardHeight?: string;
 }
 
 const ResponsiveCardGrid = ({ 
   children, 
   desktopGridClass, 
-  className,
-  mobileCardHeight = "h-[360px]"
+  className
 }: ResponsiveCardGridProps) => {
   const isMobile = useIsMobile();
 
@@ -40,9 +38,11 @@ const ResponsiveCardGrid = ({
             {children.map((child, index) => (
               <CarouselItem 
                 key={index} 
-                className={cn("pl-2 md:pl-4 basis-[85%] sm:basis-[70%]", mobileCardHeight)}
+                className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] flex"
               >
-                {child}
+                <div className="w-full flex">
+                  {child}
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
