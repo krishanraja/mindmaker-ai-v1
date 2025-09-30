@@ -5,24 +5,24 @@ import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 const StatsSection = () => {
   const credentialHighlights = [
     {
-      audience: "Qualified",
-      problem: "Teacher & Educator",
-      quote: "With proper certification and years of educational experience in transforming learning approaches",
-      pain: "Deep understanding of how adult learners absorb complex technical concepts",
+      audience: "Enterprise",
+      problem: "Real-World Experience",
+      quote: "Big Tech, telco, broadcaster, enterprise, and scale-up environments",
+      pain: "Practical insights from implementing AI across diverse business contexts",
       icon: GraduationCap,
     },
     {
-      audience: "Advanced", 
-      problem: "Academic Credentials",
-      quote: "Linguistics, Computing & Psychology backgrounds provide multidisciplinary insight into AI learning",
-      pain: "Scientific approach to breaking down AI complexity into digestible, actionable knowledge",
+      audience: "5 Disciplines", 
+      problem: "Multidisciplinary Expert",
+      quote: "Certified in Teaching, Linguistics, Psychology, Computing, and Business",
+      pain: "Comprehensive expertise bridging technical complexity with human learning",
       icon: BookOpen,
     },
     {
       audience: "100+",
-      problem: "Sessions Run", 
-      quote: "Proven track record of accelerating tech literacy across diverse professional backgrounds",
-      pain: "Real results from executives, founders, and teams who now lead with AI confidence",
+      problem: "Data, Automation & AI Seminars", 
+      quote: "Leading enterprise teams through practical AI transformation workshops",
+      pain: "Proven results from executives and teams now driving AI-led innovation",
       icon: Users,
     },
   ];
