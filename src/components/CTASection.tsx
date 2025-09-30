@@ -71,20 +71,20 @@ const CTASection = () => {
           <div className="text-center border-t border-white/20 pt-8">
             <div className="flex flex-row items-baseline justify-center gap-3 sm:gap-8 mb-4">
               <div className="text-center flex-1">
-                <div className="text-xl sm:text-2xl font-semibold text-white">90+</div>
-                <div className="text-xs sm:text-sm text-white/80">Strategic Plans</div>
+                <div className="text-xl sm:text-2xl font-semibold text-white">Revenue</div>
+                <div className="text-xs sm:text-sm text-white/80">Catalyst Results</div>
               </div>
               <div className="text-center flex-1">
-                <div className="text-xl sm:text-2xl font-semibold text-white">50+</div>
-                <div className="text-xs sm:text-sm text-white/80">Executive Sessions</div>
+                <div className="text-xl sm:text-2xl font-semibold text-white">Zero</div>
+                <div className="text-xs sm:text-sm text-white/80">Wasted Pilots</div>
               </div>
               <div className="text-center flex-1">
-                <div className="text-xl sm:text-2xl font-semibold text-white">12</div>
-                <div className="text-xs sm:text-sm text-white/80">Recent AI Advisories</div>
+                <div className="text-xl sm:text-2xl font-semibold text-white">Rapid</div>
+                <div className="text-xs sm:text-sm text-white/80">Business Outcomes</div>
               </div>
             </div>
             <p className="text-base text-white/80">
-              Credit-based, modular approach proven to accelerate AI literacy and drive revenue growth
+              Modular, flexible learning proven to accelerate adoption and drive measurable ROI
             </p>
           </div>
         </div>

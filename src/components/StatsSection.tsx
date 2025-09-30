@@ -19,7 +19,7 @@ const StatsSection = () => {
       icon: BookOpen,
     },
     {
-      audience: "200+",
+      audience: "100+",
       problem: "Minds Transformed", 
       quote: "Proven track record of accelerating tech literacy across diverse professional backgrounds",
       pain: "Real results from executives, founders, and teams who now lead with AI confidence",

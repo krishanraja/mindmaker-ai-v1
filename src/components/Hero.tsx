@@ -40,7 +40,7 @@ const Hero = () => {
           
           {/* Supporting Tagline - Mobile Optimized */}
           <p className="text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl font-medium tracking-wide mb-8 md:mb-12 leading-relaxed max-w-4xl mx-auto text-white/95">
-            Everyone's future foundation.
+            The future foundation of work.
           </p>
           
           {/* CTA Buttons - Mobile-First Design */}
@@ -68,10 +68,10 @@ const Hero = () => {
                     outcomesSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                aria-label="Take AI Literacy Assessment"
+                aria-label="Take 2-Minute Diagnostic Assessment"
               >
-                <span className="sm:hidden">Assess in 2 min</span>
-                <span className="hidden sm:inline">Assess your literacy in 2 min</span>
+                <span className="sm:hidden">2-Min Diagnostic</span>
+                <span className="hidden sm:inline">Take 2-Min Diagnostic → Custom Pathway</span>
                 <ArrowRight className="ml-2 h-3 md:h-4 w-3 md:w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
               

@@ -9,10 +9,10 @@ const AudienceOutcomesSection = () => {
       outcome: "Run & Future Proof",
       description: "Transform from anxious to AI-confident. Make strategic decisions with AI as your thinking partner, not just another tool.",
       benefits: [
-        "Strategic AI roadmap for business",
-        "Confident decision framework", 
-        "Effective risk mitigation strategies",
-        "Team AI priority alignment"
+        "Accelerated AI adoption without wasted pilots",
+        "Strategic roadmap for measurable ROI", 
+        "Confident decision-making framework",
+        "Leadership literacy that drives business outcomes"
       ],
       icon: mindmakerIconLight,
       cta: "Executive Assessment"
@@ -22,10 +22,10 @@ const AudienceOutcomesSection = () => {
       outcome: "Reclaim Purpose", 
       description: "Stop chasing hype. Transform AI literacy into a revenue catalyst for sustainable competitive advantage.",
       benefits: [
-        "AI-integrated product-market fit",
-        "Competitive differentiation plan",
-        "ROI-driven resource allocation",
-        "Strong investor AI narrative"
+        "Revenue growth through literacy-driven workflows",
+        "Competitive advantage with modular, flexible learning",
+        "Choose what you need, when you need it",
+        "Fast-track innovation with practical business outcomes"
       ],
       icon: mindmakerIconLight,
       cta: "High Growth Sprint"

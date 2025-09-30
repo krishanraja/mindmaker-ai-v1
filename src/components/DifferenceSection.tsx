@@ -5,20 +5,20 @@ const DifferenceSection = () => {
   const differences = [
     {
       number: "01",
-      title: "Multidisciplinary Foundation",
-      description: "Grounded in education, data, and technology expertise - bridging business strategy with practical AI implementation",
+      title: "Strategic Bridge",
+      description: "The essential step between confused humans and technical implementers. Technical builds mean nothing without confident non-technical teams.",
       icon: Briefcase,
     },
     {
       number: "02", 
       title: "Literacy-First Methodology",
-      description: "Build understanding before tools. Our proven framework ensures sustainable AI adoption",
+      description: "Build understanding before tools. AI isn't software—it's more like a new species of worker we need to learn to communicate with.",
       icon: Target,
     },
     {
       number: "03",
-      title: "Gamified Credit System",
-      description: "Interactive, modular learning with 5-45 credit flexibility. Earn progress through engaging challenges, not boring lectures",
+      title: "Modular Credit System",
+      description: "Choose what you need, when you need it. Interactive, flexible learning with 5-45 credit options. Pay-as-you-go for real business outcomes.",
       icon: CheckCircle,
     },
     {
@@ -29,8 +29,8 @@ const DifferenceSection = () => {
     },
     {
       number: "05",
-      title: "From knowledge to outcomes",
-      description: "Real business outcomes with Fortune 500 companies and scale ups",
+      title: "From Knowledge to Revenue",
+      description: "Accelerated adoption without wasted pilots. Proven business outcomes with Fortune 500 companies and scale-ups.",
       icon: Users,
     },
   ];
