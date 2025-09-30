@@ -4,7 +4,7 @@ import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 
 const ContentHubSection = () => {
   return (
-    <section className="section-padding bg-gradient-to-r from-accent/5 to-primary/5">
+    <section className="section-padding bg-background">
       <div className="container-width">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
