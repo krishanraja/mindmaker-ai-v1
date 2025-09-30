@@ -7,7 +7,7 @@ const AudienceOutcomesSection = () => {
     {
       audience: "Enterprise Leaders",
       outcome: "Run & Future Proof",
-      description: "Transform from anxious to AI-confident. Make strategic decisions with AI as your thinking partner, not just another tool.",
+      description: "Transform from anxious to AI-confident. Use AI as your strategic thinking partner.",
       benefits: [
         "Accelerated AI adoption without wasted pilots",
         "Strategic roadmap for measurable ROI", 
@@ -20,7 +20,7 @@ const AudienceOutcomesSection = () => {
     {
       audience: "High Growth SMB",
       outcome: "Reclaim Purpose", 
-      description: "Stop chasing hype. Transform AI literacy into a revenue catalyst for sustainable competitive advantage.",
+      description: "Stop chasing hype. Turn AI literacy into sustainable competitive advantage.",
       benefits: [
         "Revenue growth through literacy-driven workflows",
         "Competitive advantage with modular, flexible learning",

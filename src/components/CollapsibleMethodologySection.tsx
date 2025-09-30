@@ -99,8 +99,7 @@ const CollapsibleMethodologySection = () => {
             <div className="pt-8">
               <div className="text-center mb-12 fade-in-up">
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto mb-3 sm:mb-4">
-                  Our proven cognitive learning methodology transforms individuals and teams through structured literacy development, starting wherever you are. 
-                  Each phase builds deep understanding while cultivating practical AI reasoning capabilities, tailored to your current level.
+                  Skip boring workshops. Our gamified methodology transforms AI literacy into engaging, measurable outcomes.
                 </p>
                 <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-medium text-muted-foreground">
                   <span className="text-primary font-semibold">ASSESS</span>

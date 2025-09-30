@@ -25,7 +25,7 @@ const ProblemSection = () => {
       audience: "Leaders",
       problem: "Drowning in AI noise",
       quote: "I know AI will change everything, but I don't know where to start or who to trust",
-      pain: "Revenue at risk from poor AI investment decisions, competitors gaining strategic advantage through effective AI implementation",
+      pain: "Revenue at risk from poor AI investments, competitors advancing through effective AI",
       icon: Users,
     },
     {
@@ -39,7 +39,7 @@ const ProblemSection = () => {
       audience: "Teams",
       problem: "Job displacement anxiety", 
       quote: "Will I still be relevant in an AI world? How do I future-proof my career?",
-      pain: "Career stagnation while AI-literate peers advance, missed opportunities for leadership roles in AI-first organizations",
+      pain: "Career stagnation as AI-literate peers advance, missing AI leadership opportunities",
       icon: Clock,
     },
   ];
@@ -54,7 +54,7 @@ const ProblemSection = () => {
             </span>
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-muted-foreground max-w-3xl mx-auto">
-            3 in 5 workers will need to rethink the way they work this decade as agentic automation rewrites roles and AI begins its ascent in to productivity.
+            3 in 5 workers must rethink their roles this decade as AI automation reshapes productivity.
           </p>
         </div>
         
