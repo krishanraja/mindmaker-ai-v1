@@ -61,10 +61,10 @@ const AudienceOutcomesSection = () => {
         
         <ResponsiveCardGrid 
           desktopGridClass="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-6"
-          mobileCardHeight="h-[650px]"
+          mobileCardHeight="h-[480px]"
         >
           {outcomes.map((outcome, index) => (
-            <div key={index} className="card p-4 sm:p-6 fade-in-up flex flex-col h-full rounded-xl" style={{animationDelay: `${index * 0.1}s`}}>
+            <div key={index} className="card p-4 sm:p-6 lg:p-8 fade-in-up flex flex-col h-full rounded-xl" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="text-center mb-5 sm:mb-6 lg:mb-5 flex flex-col">
                 <div className="inline-flex items-center justify-center w-14 sm:w-16 h-14 sm:h-16 bg-primary text-white rounded-xl mb-4 mx-auto">
                   <img src={outcome.icon} alt="MindMaker Icon" className="h-8 w-8 sm:h-10 sm:w-10 object-contain" loading="lazy" decoding="async" />

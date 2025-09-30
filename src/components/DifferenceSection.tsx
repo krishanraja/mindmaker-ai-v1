@@ -51,10 +51,10 @@ const DifferenceSection = () => {
         
         <ResponsiveCardGrid 
           desktopGridClass="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          mobileCardHeight="h-[280px]"
+          mobileCardHeight="h-[300px]"
         >
           {differences.map((difference, index) => (
-            <div key={index} className="card p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
+            <div key={index} className="card p-4 sm:p-6 lg:p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="flex items-start gap-4 mb-6">
                 <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center">
                   <difference.icon className="h-6 w-6" />

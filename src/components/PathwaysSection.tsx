@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Megaphone, Target, Cog, Search, Hammer, UserCheck, GamepadIcon, Workflow, Telescope, Users2, PenTool, RotateCcw } from "lucide-react";
 import { useState } from "react";
+import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
 
 const PathwaysSection = () => {
   const [showSpecializedModules, setShowSpecializedModules] = useState(false);
@@ -135,9 +136,9 @@ const PathwaysSection = () => {
     const isLeadership = module.track === "LEADERSHIP";
     
     return (
-      <div className={`glass-card p-4 sm:p-6 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule && !isLevel3 ? 'opacity-75' : ''}`}>
-        {/* Header Section - Fixed Height */}
-        <div className="min-h-[100px] sm:min-h-[120px] flex flex-col">
+      <div className={`glass-card p-4 sm:p-6 lg:p-8 hover:scale-105 transition-all duration-300 group flex flex-col h-full rounded-xl ${!isCoreModule && !isLevel3 ? 'opacity-75' : ''}`}>
+        {/* Header Section */}
+        <div className="flex flex-col mb-4">
           {/* Badge */}
           <div className="flex justify-end mb-3 sm:mb-4">
             {isCoreModule ? (
@@ -244,9 +245,12 @@ const PathwaysSection = () => {
 
         {/* Core Modules - Always Visible */}
         <div className="mb-8 sm:mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-8">
+          <ResponsiveCardGrid
+            desktopGridClass="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mb-8"
+            mobileCardHeight="h-[420px]"
+          >
             {coreModules.map((module) => renderModule(module, true))}
-          </div>
+          </ResponsiveCardGrid>
           
           {/* Show/Hide Specialized Modules Button */}
           <div className="text-center mb-8">
@@ -265,9 +269,12 @@ const PathwaysSection = () => {
           {showSpecializedModules && (
             <div className="max-w-7xl mx-auto animate-fade-in">
               {/* Level 2 Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+              <ResponsiveCardGrid
+                desktopGridClass="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8"
+                mobileCardHeight="h-[420px]"
+              >
                 {specializedModules.map((module) => renderModule(module, false, false))}
-              </div>
+              </ResponsiveCardGrid>
               
               {/* Show/Hide Level 3 Modules Button */}
               <div className="text-center mb-8">
@@ -285,9 +292,12 @@ const PathwaysSection = () => {
               {/* Level 3 Grid */}
               {showLevel3Modules && (
                 <div className="max-w-7xl mx-auto animate-fade-in">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                  <ResponsiveCardGrid
+                    desktopGridClass="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+                    mobileCardHeight="h-[420px]"
+                  >
                     {level3ModulesArray.map((module) => renderModule(module, false, true))}
-                  </div>
+                  </ResponsiveCardGrid>
                 </div>
               )}
             </div>

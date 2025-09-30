@@ -42,10 +42,10 @@ const StatsSection = () => {
         <ResponsiveCardGrid 
           desktopGridClass="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
           className="mb-16"
-          mobileCardHeight="h-[420px]"
+          mobileCardHeight="h-[450px]"
         >
           {credentialHighlights.map((item, index) => (
-            <div key={index} className="card p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
+            <div key={index} className="card p-4 sm:p-6 lg:p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="inline-flex items-center justify-center w-16 h-16 bg-success text-white rounded-xl mb-6">
                 <item.icon className="h-8 w-8" />
               </div>
