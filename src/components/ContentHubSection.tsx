@@ -25,30 +25,36 @@ const ContentHubSection = () => {
           <ResponsiveCardGrid 
             desktopGridClass="grid md:grid-cols-3 gap-6 mb-8"
             className="mb-8"
-            mobileCardHeight="h-[280px]"
+            mobileCardHeight="min-h-[180px]"
           >
-            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-5 h-5 text-primary" />
+            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col justify-between">
+              <div className="flex flex-col items-center flex-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Industry Reports</h3>
+                <p className="text-sm text-muted-foreground">Latest AI adoption trends and market insights</p>
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Industry Reports</h3>
-              <p className="text-sm text-muted-foreground">Latest AI adoption trends and market insights</p>
             </div>
             
-            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Target className="w-5 h-5 text-accent" />
+            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col justify-between">
+              <div className="flex flex-col items-center flex-1">
+                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-5 h-5 text-accent" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Strategy Frameworks</h3>
+                <p className="text-sm text-muted-foreground">Proven methodologies for AI implementation</p>
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Strategy Frameworks</h3>
-              <p className="text-sm text-muted-foreground">Proven methodologies for AI implementation</p>
             </div>
             
-            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="w-5 h-5 text-primary" />
+            <div className="glass-card p-4 sm:p-6 lg:p-8 text-center h-full flex flex-col justify-between">
+              <div className="flex flex-col items-center flex-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Expert Insights</h3>
+                <p className="text-sm text-muted-foreground">Exclusive content from industry leaders</p>
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Expert Insights</h3>
-              <p className="text-sm text-muted-foreground">Exclusive content from industry leaders</p>
             </div>
           </ResponsiveCardGrid>
           
