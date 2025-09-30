@@ -237,7 +237,7 @@ const PathwaysSection = () => {
       <div className="container-width">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight mb-4 sm:mb-6 text-foreground">Modules You Can Combine</h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-5xl mx-auto">
             Our modular credit system lets you <strong>choose what you need, when you need it</strong>. Build your custom learning pathway with flexible, pay-as-you-go modules designed for business outcomes.
           </p>
         </div>
