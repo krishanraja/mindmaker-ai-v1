@@ -301,15 +301,6 @@ html {
   .animate-collapsible-up {
     animation: collapsible-up 0.3s ease-out;
   }
-
-  /* === DEBUG BACKGROUND COLORS - EXPLICIT FALLBACKS === */
-  .debug-slate-bg {
-    background-color: #f1f5f9 !important; /* slate-100 exact color */
-  }
-
-  .debug-purple-bg {
-    background-color: #faf5ff !important; /* purple-50 exact color */
-  }
 }
 
 
@@ -325,4 +316,18 @@ html {
 button:focus-visible, a:focus-visible, input:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+/* ========================================
+   SECTION BACKGROUNDS - MAXIMUM SPECIFICITY
+   Outside all CSS layers to override everything
+   World-class visual separation
+   ======================================== */
+
+.section-slate-bg {
+  background-color: #f1f5f9 !important; /* slate-100 - Light gray for contrast */
+}
+
+.section-purple-bg {
+  background-color: #faf5ff !important; /* purple-50 - Light purple for brand */
 }
