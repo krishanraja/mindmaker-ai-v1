@@ -88,7 +88,6 @@
 }
 
 body {
-  background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: 'Inter', system-ui, sans-serif;
   scroll-behavior: smooth;
