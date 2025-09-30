@@ -36,7 +36,7 @@ const DifferenceSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-muted/50">
       <div className="container-width">
         <div className="text-center mb-16 fade-in-up">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
