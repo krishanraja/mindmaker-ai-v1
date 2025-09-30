@@ -54,26 +54,23 @@ const DifferenceSection = () => {
           mobileCardHeight="h-[360px]"
         >
           {differences.map((difference, index) => (
-            <div key={index} className="card p-4 sm:p-6 lg:p-8 fade-in-up h-full flex flex-col justify-between" style={{animationDelay: `${index * 0.1}s`}}>
-              <div className="flex flex-col flex-1">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center">
-                    <difference.icon className="h-6 w-6" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary/60">
-                    {difference.number}
-                  </div>
+            <div key={index} className="card p-4 sm:p-6 lg:p-8 fade-in-up h-full flex flex-col" style={{animationDelay: `${index * 0.1}s`}}>
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center">
+                  <difference.icon className="h-6 w-6" />
                 </div>
-                
-                <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4">
-                  {difference.title}
-                </h3>
-                
-                <p className="text-sm font-normal leading-relaxed text-muted-foreground">
-                  {difference.description}
-                </p>
+                <div className="text-2xl font-bold text-primary/60">
+                  {difference.number}
+                </div>
               </div>
-              <div className="h-[48px]"></div>
+              
+              <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-4">
+                {difference.title}
+              </h3>
+              
+              <p className="text-sm font-normal leading-relaxed text-muted-foreground">
+                {difference.description}
+              </p>
             </div>
           ))}
         </ResponsiveCardGrid>
