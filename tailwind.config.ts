@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
   darkMode: ["class"],
@@ -19,9 +18,6 @@ export default {
         gobold: ['Gobold', 'Impact', 'Arial Black', 'sans-serif'],
       },
       colors: {
-        // Keep ALL default Tailwind colors (slate, gray, purple, etc.)
-        ...defaultTheme.colors,
-        // Add custom design system colors
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         muted: "hsl(var(--muted))",

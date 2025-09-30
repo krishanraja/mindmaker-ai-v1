@@ -60,7 +60,7 @@ export const useStatsTimer = ({ isActive, configs }: UseStatsTimerOptions) => {
     return () => {
       clearAllIntervals();
     };
-  }, [isActive, startTimer, clearAllIntervals]); // Remove configs to prevent recreation loop
+  }, [isActive, configs, startTimer, clearAllIntervals]);
 
   return {
     startTimer,

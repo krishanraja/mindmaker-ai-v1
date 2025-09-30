@@ -27,15 +27,19 @@ const Index = () => {
         <TrustSection />
       </section>
 
-      <ProblemSection />
-      <DifferenceSection />
+      <section aria-label="Problem Statement and Solution">
+        <ProblemSection />
+        <DifferenceSection />
+      </section>
 
       <section aria-label="Audience Outcomes" id="outcomes">
         <AudienceOutcomesSection />
       </section>
 
       <Suspense fallback={<div className="min-h-[400px]" />}>
-        <PathwaysSection />
+        <section aria-label="Program Pathways" id="pathways">
+          <PathwaysSection />
+        </section>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[300px]" />}>
