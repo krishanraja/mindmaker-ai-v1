@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink, BookOpen, BarChart3, Target, Lightbulb } from "lucide-react";
+import { ExternalLink, BookOpen, BarChart3, Target, Lightbulb, Download } from "lucide-react";
 import ResponsiveCardGrid from "@/components/ResponsiveCardGrid";
+import whitepaperCover from "@/assets/whitepaper-cover.png";
 
 const ContentHubSection = () => {
   return (
@@ -21,6 +22,48 @@ const ContentHubSection = () => {
               See our expertise in action before we work together.
             </p>
           </div>
+
+          {/* Featured Whitepaper Card */}
+          <a 
+            href="https://docsend.com/view/uybrzhx75fcwp2n7" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block mb-8 group"
+          >
+            <div className="relative glass-card p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:shadow-xl">
+              {/* Background Image - Hidden by default, visible on hover (desktop only) */}
+              <div 
+                className="absolute inset-0 opacity-0 md:group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center"
+                style={{ backgroundImage: `url(${whitepaperCover})` }}
+              />
+              
+              {/* Mobile Image - Always visible on mobile */}
+              <div className="md:hidden mb-6">
+                <img 
+                  src={whitepaperCover} 
+                  alt="Resolving the AI Literacy Crisis Whitepaper Cover" 
+                  className="w-full max-w-[200px] mx-auto rounded-lg shadow-lg"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10">
+                <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                  Featured Report
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
+                  Resolving the AI Literacy Crisis
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Discover the critical insights and frameworks leaders need to bridge the AI knowledge gap in their organizations.
+                </p>
+                <Button variant="hero-primary" size="lg" className="pointer-events-none">
+                  Download Free Report
+                  <Download className="ml-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
+                </Button>
+              </div>
+            </div>
+          </a>
           
           <ResponsiveCardGrid 
             desktopGridClass="grid md:grid-cols-3 gap-6 mb-8"
