@@ -30,37 +30,33 @@ const ContentHubSection = () => {
             rel="noopener noreferrer"
             className="block mb-8 group"
           >
-            <div className="relative glass-card p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:shadow-xl">
-              {/* Background Image - Hidden by default, visible on hover (desktop only) */}
-              <div 
-                className="absolute inset-0 opacity-0 md:group-hover:opacity-20 transition-opacity duration-500 bg-cover bg-center"
-                style={{ backgroundImage: `url(${whitepaperCover})` }}
-              />
-              
-              {/* Mobile Image - Always visible on mobile */}
-              <div className="md:hidden mb-6">
-                <img 
-                  src={whitepaperCover} 
-                  alt="Resolving the AI Literacy Crisis Whitepaper Cover" 
-                  className="w-full max-w-[200px] mx-auto rounded-lg shadow-lg"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-4">
-                  Featured Report
+            <div className="glass-card p-6 sm:p-8 transition-all duration-300 hover:shadow-xl">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                {/* Whitepaper Cover Image */}
+                <div className="flex-shrink-0">
+                  <img 
+                    src={whitepaperCover} 
+                    alt="Resolving the AI Literacy Crisis Whitepaper Cover" 
+                    className="w-full max-w-[200px] md:max-w-[240px] rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.15)] border border-border/50 transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
-                  Resolving the AI Literacy Crisis
-                </h3>
-                <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto">
-                  Discover the critical insights and frameworks leaders need to bridge the AI knowledge gap in their organizations.
-                </p>
-                <Button variant="hero-primary" size="lg" className="pointer-events-none">
-                  Download Free Report
-                  <Download className="ml-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
-                </Button>
+
+                {/* Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <div className="inline-flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                    Featured Report
+                  </div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3">
+                    Resolving the AI Literacy Crisis
+                  </h3>
+                  <p className="text-sm sm:text-base text-muted-foreground mb-6">
+                    Discover the critical insights and frameworks leaders need to bridge the AI knowledge gap in their organizations.
+                  </p>
+                  <Button variant="hero-primary" size="lg" className="pointer-events-none">
+                    Download Free Report
+                    <Download className="ml-2 h-5 w-5 group-hover:translate-y-0.5 transition-transform" />
+                  </Button>
+                </div>
               </div>
             </div>
           </a>
