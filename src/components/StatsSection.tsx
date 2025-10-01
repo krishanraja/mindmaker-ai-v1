@@ -162,30 +162,30 @@ const StatsSection = () => {
         </Collapsible>
           
         {/* Three Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
-          <Collapsible open={isCredentialsOpen} onOpenChange={setIsCredentialsOpen}>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center flex-wrap">
+          <Collapsible open={isCredentialsOpen} onOpenChange={setIsCredentialsOpen} className="w-full sm:w-auto">
             <CollapsibleTrigger asChild>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto"
+                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full"
               >
                 <Award className="mr-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform" />
-                My Credentials
+                Credentials
                 <ChevronDown className={`ml-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 ${isCredentialsOpen ? 'rotate-180' : ''}`} />
               </Button>
             </CollapsibleTrigger>
           </Collapsible>
           
-          <Collapsible open={isMethodologyOpen} onOpenChange={setIsMethodologyOpen}>
+          <Collapsible open={isMethodologyOpen} onOpenChange={setIsMethodologyOpen} className="w-full sm:w-auto">
             <CollapsibleTrigger asChild>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto"
+                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full"
               >
                 <Brain className="mr-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform" />
-                Our Methodology
+                Methodology
                 <ChevronDown className={`ml-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 ${isMethodologyOpen ? 'rotate-180' : ''}`} />
               </Button>
             </CollapsibleTrigger>
