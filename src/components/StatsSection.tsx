@@ -162,17 +162,17 @@ const StatsSection = () => {
         </Collapsible>
           
         {/* Three Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
           <Collapsible open={isCredentialsOpen} onOpenChange={setIsCredentialsOpen} className="w-full sm:w-auto">
             <CollapsibleTrigger asChild>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full"
+                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto flex items-center justify-center gap-2"
               >
-                <Award className="mr-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform" />
-                Credentials
-                <ChevronDown className={`ml-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 ${isCredentialsOpen ? 'rotate-180' : ''}`} />
+                <Award className="h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="flex-shrink-0">Credentials</span>
+                <ChevronDown className={`h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 flex-shrink-0 ${isCredentialsOpen ? 'rotate-180' : ''}`} />
               </Button>
             </CollapsibleTrigger>
           </Collapsible>
@@ -182,11 +182,11 @@ const StatsSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full"
+                className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto flex items-center justify-center gap-2"
               >
-                <Brain className="mr-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform" />
-                Methodology
-                <ChevronDown className={`ml-2 h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 ${isMethodologyOpen ? 'rotate-180' : ''}`} />
+                <Brain className="h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <span className="flex-shrink-0">Methodology</span>
+                <ChevronDown className={`h-4 sm:h-5 w-4 sm:w-5 transition-transform duration-300 flex-shrink-0 ${isMethodologyOpen ? 'rotate-180' : ''}`} />
               </Button>
             </CollapsibleTrigger>
           </Collapsible>
@@ -194,11 +194,11 @@ const StatsSection = () => {
           <Button 
             variant="outline" 
             size="lg"
-            className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto"
+            className="border-primary text-primary hover:bg-primary hover:text-white group transition-all duration-300 min-h-[48px] px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto flex items-center justify-center gap-2"
             onClick={() => window.open('https://www.krishraja.com/', '_blank')}
           >
-            <ExternalLink className="mr-2 h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform" />
-            Founder Bio
+            <ExternalLink className="h-4 sm:h-5 w-4 sm:w-5 group-hover:scale-110 transition-transform flex-shrink-0" />
+            <span className="flex-shrink-0">Founder Bio</span>
           </Button>
         </div>
       </div>
