@@ -162,6 +162,17 @@ const InteractiveTimeline = () => {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
+      // Check if user is typing in an input or textarea
+      const target = e.target as HTMLElement;
+      const isTyping = target.tagName === 'INPUT' || 
+                       target.tagName === 'TEXTAREA' || 
+                       target.isContentEditable;
+      
+      // Don't interfere with typing
+      if (isTyping && e.key === ' ') {
+        return; // Let spacebar work normally in inputs
+      }
+      
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
         prevItem();
