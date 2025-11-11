@@ -24,7 +24,7 @@ const Privacy = () => {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">1. Information We Collect</h2>
             <p className="mb-4">
-              Fractionl AI ("we," "our," or "us") collects information you provide directly to us, such as when you:
+              The Mindmaker ("we," "our," or "us") collects information you provide directly to us, such as when you:
             </p>
             <ul className="list-disc pl-6 mb-4">
               <li>Sign up for our AI literacy programs</li>

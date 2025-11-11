@@ -24,14 +24,14 @@ const Terms = () => {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">1. Acceptance of Terms</h2>
             <p className="mb-4">
-              By accessing or using Fractionl AI's services, website, or programs, you agree to be bound by these Terms & Conditions ("Terms"). If you do not agree to these Terms, please do not use our services.
+              By accessing or using The Mindmaker's services, website, or programs, you agree to be bound by these Terms & Conditions ("Terms"). If you do not agree to these Terms, please do not use our services.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">2. Description of Services</h2>
             <p className="mb-4">
-              Fractionl AI provides AI literacy training, coaching, and educational services including:
+              The Mindmaker provides AI literacy training, coaching, and educational services including:
             </p>
             <ul className="list-disc pl-6 mb-4">
               <li>AI literacy assessments and evaluations</li>
@@ -70,7 +70,7 @@ const Terms = () => {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">5. Intellectual Property</h2>
             <p className="mb-4">
-              All content, materials, and intellectual property provided through Fractionl AI services are owned by us or our licensors. You may not:
+              All content, materials, and intellectual property provided through The Mindmaker services are owned by us or our licensors. You may not:
             </p>
             <ul className="list-disc pl-6 mb-4">
               <li>Copy, distribute, or reproduce our materials without permission</li>
@@ -96,7 +96,7 @@ const Terms = () => {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">7. Limitation of Liability</h2>
             <p className="mb-4">
-              To the maximum extent permitted by law, Fractionl AI shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services. Our total liability shall not exceed the amount you paid for the specific service.
+              To the maximum extent permitted by law, The Mindmaker shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services. Our total liability shall not exceed the amount you paid for the specific service.
             </p>
           </section>
 
@@ -124,7 +124,7 @@ const Terms = () => {
           <section className="mb-8">
             <h2 className="text-xl font-semibold mb-4">11. Governing Law</h2>
             <p className="mb-4">
-              These Terms shall be governed by and construed in accordance with the laws of the jurisdiction where Fractionl AI operates, without regard to its conflict of law provisions.
+              These Terms shall be governed by and construed in accordance with the laws of the jurisdiction where The Mindmaker operates, without regard to its conflict of law provisions.
             </p>
           </section>
 
