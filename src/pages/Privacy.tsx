@@ -104,9 +104,9 @@ const Privacy = () => {
               If you have any questions about this Privacy Policy or our data practices, please contact us at:
             </p>
             <div className="bg-muted p-4 rounded-lg">
-              <p><strong>Fractionl AI</strong></p>
-              <p>Email: privacy@fractionl.ai</p>
-              <p>Website: https://fractionl.ai</p>
+              <p><strong>The Mindmaker</strong></p>
+              <p>Email: krish@themindmaker.ai</p>
+              <p>Website: https://www.themindmaker.ai</p>
             </div>
           </section>
         </div>
