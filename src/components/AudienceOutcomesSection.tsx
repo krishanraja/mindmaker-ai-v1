@@ -6,42 +6,42 @@ const AudienceOutcomesSection = () => {
   const outcomes = [
     {
       audience: "Enterprise Leaders",
-      outcome: "Run & Future Proof",
-      description: "Transform from anxious to AI-confident. Use AI as your strategic thinking partner.",
+      outcome: "AI Leadership Benchmark",
+      description: "Assess and accelerate your AI leadership capabilities. Move from AI-aware to AI-orchestrator with personalized benchmarking.",
       benefits: [
-        "Accelerated AI adoption without wasted pilots",
-        "Strategic roadmap for measurable ROI", 
-        "Confident decision-making framework",
-        "Leadership literacy that drives business outcomes"
+        "Leadership score across 6 core dimensions",
+        "Custom AI prompt library ($5,000 value)",
+        "Industry peer benchmarking",
+        "Personalized strategic roadmap"
       ],
       icon: mindmakerIconLight,
       cta: "Executive Assessment"
     },
     {
-      audience: "High Growth SMB",
-      outcome: "Reclaim Purpose", 
-      description: "Stop chasing hype. Turn AI literacy into sustainable competitive advantage.",
+      audience: "Leadership Teams",
+      outcome: "From Hype to Strategy",
+      description: "Transform AI anxiety into strategic clarity through hands-on decision simulations and structured workshop experiences.",
       benefits: [
-        "Revenue growth through literacy-driven workflows",
-        "Competitive advantage with modular, flexible learning",
-        "Choose what you need, when you need it",
-        "Fast-track innovation with practical business outcomes"
-      ],
-      icon: mindmakerIconLight,
-      cta: "High Growth Sprint"
-    },
-    {
-      audience: "Teams", 
-      outcome: "10x Your Value",
-      description: "Turn AI anxiety into career acceleration.<br />Master GenAI as your thinking partner and become indispensable talent.",
-      benefits: [
-        "Future-proof skill development",
-        "AI productivity mastery",
-        "AI-first economy positioning", 
-        "AI leadership confidence"
+        "Strategic clarity from hype to action",
+        "Team alignment across leadership",
+        "Risk mitigation without expensive failures",
+        "90-day pilot charter ready for execution"
       ],
       icon: mindmakerIconLight,
       cta: "Team Program"
+    },
+    {
+      audience: "Partners", 
+      outcome: "Portfolio Enablement",
+      description: "Enable VCs, consulting firms, and system integrators to assess and prioritize portfolio companies for AI enablement.",
+      benefits: [
+        "Portfolio heatmap and prioritization",
+        "Co-branded materials and offer packs",
+        "Qualified lead pipeline",
+        "Partner credibility positioning"
+      ],
+      icon: mindmakerIconLight,
+      cta: "Partner Assessment"
     },
   ];
 
@@ -99,8 +99,8 @@ const AudienceOutcomesSection = () => {
                 <a 
                   href={
                     outcome.cta === 'Executive Assessment' ? 'https://leaders.themindmaker.ai' :
-                    outcome.cta === 'High Growth Sprint' ? 'https://smb.themindmaker.ai' :
                     outcome.cta === 'Team Program' ? 'https://teams.themindmaker.ai' :
+                    outcome.cta === 'Partner Assessment' ? 'https://partners.themindmaker.ai' :
                     '#'
                   }
                   target="_blank"
