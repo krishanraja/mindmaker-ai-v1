@@ -51,15 +51,15 @@ const Hero = () => {
           
           {/* CTA Buttons - Mobile-First Design */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 md:gap-6 mb-8 md:mb-12 max-w-lg sm:max-w-none mx-auto">
-            {/* Primary CTA - Book a Call */}
+            {/* Primary CTA - 1 Hour Masterclass */}
             <Button 
               variant="hero-primary"
               size="lg" 
               className="px-6 md:px-8 py-4 md:py-4 text-sm sm:text-base md:text-lg font-semibold group w-full sm:w-auto min-h-[48px] sm:min-h-[44px] rounded-lg sm:rounded-md order-1 sm:order-1"
-              onClick={() => window.open('https://calendly.com/krish-raja/mindmaker-meeting', '_blank')}
-              aria-label="Book a strategic consultation call"
+              onClick={() => window.open('https://maven.com/p/a62e40/learn-how-to-program-your-gen-ai-tools', '_blank')}
+              aria-label="Join free 1-hour AI masterclass"
             >
-              Book a Call
+              1 Hour Masterclass (Free)
             </Button>
             
             {/* Secondary CTAs */}
@@ -76,8 +76,8 @@ const Hero = () => {
                 }}
                 aria-label="Take 2-Minute Diagnostic Assessment"
               >
-                <span className="sm:hidden">2 Min Literacy Test</span>
-                <span className="hidden sm:inline">2 Min Literacy Test</span>
+                <span className="sm:hidden">2 Min Literacy Assessment (Free)</span>
+                <span className="hidden sm:inline">2 Min Literacy Assessment (Free)</span>
                 <ArrowRight className="ml-2 h-3 md:h-4 w-3 md:w-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
               
@@ -85,16 +85,11 @@ const Hero = () => {
                 variant="hero-secondary"
                 size="sm"
                 className="px-4 md:px-6 py-3 md:py-3 text-xs sm:text-sm md:text-base font-medium w-full sm:w-auto min-h-[44px] sm:min-h-[40px] rounded-lg sm:rounded-md"
-                onClick={() => {
-                  const pathwaysSection = document.getElementById('pathways');
-                  if (pathwaysSection) {
-                    pathwaysSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                aria-label="View Educational Seminars"
+                onClick={() => window.open('https://content.themindmaker.ai/', '_blank')}
+                aria-label="Subscribe to Content Hub"
               >
-                <span className="sm:hidden">Explore Modules</span>
-                <span className="hidden sm:inline">Explore Modules</span>
+                <span className="sm:hidden">Subscribe to Content Hub</span>
+                <span className="hidden sm:inline">Subscribe to Content Hub</span>
               </Button>
             </div>
           </div>
